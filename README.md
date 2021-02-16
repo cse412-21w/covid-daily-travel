@@ -1,6 +1,6 @@
 # Final Project Demo
 ## Team Members
-Place your team member names here.
+Kairui Huang, Lu Liu, Yifan Ling, Zhijun Liu
 ### Contribution Statements
 Add individual contribution statements here.
 ## Project Proposal Abstract
