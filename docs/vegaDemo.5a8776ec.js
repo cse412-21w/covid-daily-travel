@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"Goo8":[function(require,module,exports) {
-module.exports = "https://cse412.github.io/project-demo/trips_categorize_24@3.92ad604d.csv";
+module.exports = "https://cse412-21w.github.io/project-demo/trips_categorize_24@3.92ad604d.csv";
 },{}],"CsaW":[function(require,module,exports) {
 "use strict";
 
@@ -196,4 +196,4 @@ function drawBarVegaLite() {
   });
 }
 },{"../static/trips_categorize_24@3.csv":"Goo8"}]},{},["CsaW"], null)
-//# sourceMappingURL=https://cse412.github.io/project-demo/vegaDemo.5a8776ec.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/project-demo/vegaDemo.5a8776ec.js.map
