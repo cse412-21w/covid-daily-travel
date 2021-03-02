@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSE 412 Project Demo</title>
+        <link rel="stylesheet" href="https://cse412.github.io/project-demo/style.ba16fa23.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!-- For using d3 -->
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/topojson.v2.min.js"></script>
+        <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/topojson-client"></script>
+        <!-- For using vega-lite -->
+        <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+      <!-- Title -->
+      <section class="title">
+        <a href="/">CSE 412 Demo</a>
+      </section>
+      <section>
+        <h2>Final Project</h2>
+        <p>
+        <span>&emsp;&emsp;</span>The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different states of the countries, different travel behaviors can potentially result in very different disease spreading processes. This webpage will present you the relationship among confirmed COVID-19 cases, age groups, travel behaviors, unemployment rate and many other aspects of the United States in 4 interactive interfaces.
+          <a href="https://courses.cs.washington.edu/courses/cse412/21wi/fp.html">course website</a>.
+        </p>
+      </section>
+
+
+      <!-- Figure 1 -->
+      <section id="Fig_1">
+        <h3>
+        <span>&emsp;&emsp;</span>As an introduction to the contents of the website, this page focuses on the most important part of the whole topic: Confirmed COVID-19 Cases. The country is divided into 51 states (Porto Rico not include) with the corresponding confirmed case number and infection rate recorded. The infection rate is calculated by confirmed case number divided by the total population of that state.
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>The visualization is shown as a bubble cluster, each bubble represents a state and will be randomly distributed in the cluster every time you refresh the page. The color of the bubble shows how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
+        </h3>
+        <div id="d3_bubble_chart"></div>
+      </section>
+
+
+      <!-- Figure 2 -->
+      <section id="Fig2_map">
+        <style>.state :hover{
+            fill: red;
+          }</style>
+        <h3>  
+        <span>&emsp;&emsp;</span>This page will contain 2 parts. The left part will be a bar chart. The x-axis of the bar chart will show 4 types of travel range: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). The y-axis will show the total number of trips in the country. Therefore, the bar chart will show the total number of each travel distance range during a specified time period. 
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>The right part of the bar chart will be a line plot. The x-axis will be the time and the y-axis will be the 4 types of travel distance ranges. You can select a period time directly on the line plot, and the left plot will show the data recorded during the time period you selected, and the y-axis of the bar chart may not show the total count anymore, since user may not select all the time available of the line plot. When you select one of the bars on the bar chart, the corresponding line on the line plot will also be highlighted.
+        </h3>
+        <div id="d3_interactive_Map"></div>
+        <div id="info">
+        <h3> Click on a country to explore </h3>
+        </div>>
+      </section>
+    
+      <section id="vegaDemo">
+        <h3>
+        <span>&emsp;&emsp;</span>This page will contain 3 parts: a map of United States a statistical graph, and a data selection panel. The United States map will let the user to select the state he/she is interested in. The data selection panel lets you select one of the following 4 options:
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>1.  Travel population/State population
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>2.  Travel population/State area
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>3.  Unemployment rate
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>4.  Total trips of the state
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>The selected option will be displayed on the y-axis of the statistical graph, and the x-axis of the statistical graph will always show the time information, and the graph will show how the selected data changes with time.
+        </h3>
+        <div id="view"></div>
+      </section>
+    
+
+      <section id="vs3">
+        <h3>
+        <span>&emsp;&emsp;</span>This page will contain 3 parts. A map of the United States, a bar chart, and a selection panel. The selection panel contains 6 different selections:
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>1.  Male
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>2.  Female
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>3.  Youth
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>4.  Adolescent
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>5.  Adult
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>6.  Senior
+        </h3>
+        <h3>
+        <span>&emsp;&emsp;</span>When user makes a (only one) selection, the system will calculate the ratio of the population of the selected group and the total population of each state and display the 5 states with the highest calculated ratio. These 5 states will be highlighted on the map of the United States to show where they are. The travel distance data of these 5 states will be summed up divided into the 4 travel distance ranges described on page 3 and show them on the bar chart. The x-axis of the bar chart will be the 4 travel distance ranges, the y-axis will be the travel population count. Each travel distance will have two bars stand side by side, one is from the data of 2019 and the other is from the data of 2020, to give users a better visualization of the travel pattern difference between a normal year and a year with COVID-19 pandemic. 
+        </h3>
+        <button onclick="update('Adult_trips.csv')">Adult</button>
+        <button onclick="update('child_trips.csv')">Child</button>
+        <button onclick="update('Adolescence_trips.csv')">Adolescence</button>
+        <button onclick="update('Senior_Adult_trips.csv')">Senior Adult</button>
+        <div id="d3_Fig4"></div>
+
+        <!-- Script for figure 4 -->
+        <script>// set the dimensions and margins of the graph
+var margin = {
+  top: 30,
+  right: 30,
+  bottom: 70,
+  left: 60
+},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom; // append the svg object to the body of the page
+
+var svg = d3.select("#d3_Fig4").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // Initialize the X axis
+
+var x = d3.scaleBand().range([0, width]).padding(0.2);
+var xAxis = svg.append("g").attr("transform", "translate(0," + height + ")"); // Initialize the Y axis
+
+var y = d3.scaleLinear().range([height, 0]);
+var yAxis = svg.append("g").attr("class", "myYaxis");
+var subgroups = [];
+var groups = []; // A function that create / update the plot for a given variable:
+
+function update(selectedVar) {
+  // Parse the Data
+  d3.csv("https://raw.githubusercontent.com/ray439026783/covid-daily-travel/main/static/" + selectedVar).then(function (data) {
+    // List of subgroups = header of the csv files = soil condition here
+    // var subgroups = data.columns.slice(1)
+    var subgroups = ['2019', '2020']; // List of groups = species here = value of the first column called group -> I show them on the X axis
+    // var groups = d3.map(data, function(d){return(d.dist)}).keys()
+
+    var groups = ['walk', 'short_drive', 'med_drive', 'long_drive']; // X axis
+
+    x.domain(groups).range([0, width]).padding([0.2]);
+    xAxis.transition().duration(1000).call(d3.axisBottom(x)); // Add Y axis
+    // const ymax = d3.max(data, function(d) { return (d[2019])});
+
+    y.domain([0, 85000]).range([height, 0]);
+    yAxis.transition().duration(1000).call(d3.axisLeft(y)); // Another scale for subgroup position?
+
+    var xSubgroup = d3.scaleBand().domain(subgroups).range([0, x.bandwidth()]).padding([0.05]); // color palette = one color per subgroup
+
+    var color = d3.scaleOrdinal().domain(subgroups).range(['#e41a1c', '#377eb8']); // variable u: map data to existing bars
+
+    var u = svg.selectAll("rect").data(data); // Show the bars
+
+    svg.append("g").selectAll("g") // Enter in data = loop group per group
+    .data(data).enter().append("g").attr("transform", function (d) {
+      return "translate(" + x(d.dist) + ",0)";
+    }).selectAll("rect").data(function (d) {
+      return subgroups.map(function (key) {
+        return {
+          key: key,
+          value: d[key]
+        };
+      });
+    }).enter().append("rect").attr("x", function (d) {
+      return xSubgroup(d.key);
+    }).attr("y", function (d) {
+      return y(d.value);
+    }).attr("width", xSubgroup.bandwidth()).attr("height", function (d) {
+      return height - y(d.value);
+    }).attr("fill", function (d) {
+      return color(d.key);
+    }); // update bars
+
+    u.enter().append("rect").merge(u).transition().duration(1000).attr("x", function (d) {
+      return xSubgroup(d.key);
+    }).attr("y", function (d) {
+      return y(d.value);
+    }).attr("width", xSubgroup.bandwidth()).attr("height", function (d) {
+      return height - y(d.value);
+    }).attr("fill", function (d) {
+      return color(d.key);
+    });
+    u.exit().remove();
+  });
+} // Initialize plot
+
+
+update('Adult_trips.csv');</script>>
+      </section>
+
+      <div class="footer">
+        <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
+        <a href="http://www.washington.edu">University of Washington</a>
+      </div>
+
+      <!-- it is recommended to put js files before </body> -->
+      <!-- or check load event fot addEventListener() if you want to put js in the <head> -->
+      <script src="https://cse412.github.io/project-demo/vegaDemo.5a8776ec.js"></script>
+      <script src="https://cse412.github.io/project-demo/Fig_1.379a1a32.js"></script>
+      <script src="https://cse412.github.io/project-demo/Fig2_map.990ff983.js"></script>
+    </body>
+
+</html>
