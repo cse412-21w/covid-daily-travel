@@ -161,4 +161,4 @@ d3.json("https://cdn.jsdelivr.net/npm/us-atlas/states-10m.json").then(function (
   });
 });
 },{}]},{},["TwnH"], null)
-//# sourceMappingURL=https://cse412.github.io/covid-daily-travel/Fig2_map.990ff983.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/Fig2_map.990ff983.js.map
