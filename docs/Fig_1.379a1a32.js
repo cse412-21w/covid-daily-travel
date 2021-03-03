@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"FjQP":[function(require,module,exports) {
-module.exports = "https://cse412.github.io/project-demo/Total_Covid_State_2020.e61e6d9d.csv";
+module.exports = "https://cse412.github.io/covid-daily-travel/Total_Covid_State_2020.e61e6d9d.csv";
 },{}],"ly83":[function(require,module,exports) {
 "use strict";
 
@@ -244,4 +244,4 @@ function display(data) {
 
 d3.csv(_Total_Covid_State_.default).then(display);
 },{"../static/Total_Covid_State_2020.csv":"FjQP"}]},{},["ly83"], null)
-//# sourceMappingURL=https://cse412.github.io/project-demo/Fig_1.379a1a32.js.map
+//# sourceMappingURL=https://cse412.github.io/covid-daily-travel/Fig_1.379a1a32.js.map
