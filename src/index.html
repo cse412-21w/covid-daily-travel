@@ -23,104 +23,124 @@
     <body>
 
       <!-- Title -->
-      <section class="title">
+
+      <!-- <section class="title">
         <a href="/">CSE 412 Demo</a>
-      </section>
+      </section> -->
       <section>
-        <h2>Final Project</h2>
-        <p>
-        <span>&emsp;&emsp;</span>The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different states of the countries, different travel behaviors can potentially result in very different disease spreading processes. This webpage will present you the relationship among confirmed COVID-19 cases, age groups, travel behaviors, unemployment rate and many other aspects of the United States in 4 interactive interfaces.
-          <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
-        </p>
+          <aside class="sidebar">
+            <nav class="nav">
+              <ul>
+                <li class="active"><h2><a href="#welcome">welcome</a></h2></li>
+                <li><h2><a href="#intro">intro</a></h2></li>
+                <li><h2><a href="#fig1">fig 1</a></h2></li>
+                <li><h2><a href="#fig2">fig 2</a></h2></li>
+                <li><h2><a href="#fig3">fig 3</a></h2></li>
+                <li><h2><a href="#fig4">fig 4</a></h2></li>
+                <li><h2><a href="#about">about us</a></h2></li>
+              </ul>
+            </nav>
+          </aside>
+
+        <div class = 'box'>
+          <div id="welcome"></div>
+          <div class="content">
+            <div class="container">
+              <div class="neon">COVID-19 VS  </div>
+              <div class="flux">TRAFFIC </div>
+            </div>
+            <!-- <div class = 'shadow'>
+              <h1>CSE 412 Demo</h1>
+              <h2>Final Project</h2>
+            </div> -->
+          </div>
+        </div>
+
+        <div class = 'box'>
+          <div id = 'intro'></div>
+          <div class = 'content'>
+            <h3>intro </h3>
+            <p>
+            <!-- <span>&emsp;&emsp;</span> -->
+            The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. 
+            In different states of the countries, different travel behaviors can potentially result in very different disease spreading processes. 
+            This webpage will present you the relationship among confirmed COVID-19 cases, age groups, travel behaviors, unemployment rate and many other aspects of the United States in 4 interactive interfaces.
+              <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
+            </p>
+          </div>
+        </div>
       </section>
 
 
       <!-- Figure 1 -->
       <section id = "Fig_1">
-        <h3>
-        <span>&emsp;&emsp;</span>As an introduction to the contents of the website, this page focuses on the most important part of the whole topic: Confirmed COVID-19 Cases. The country is divided into 51 states (Porto Rico not include) with the corresponding confirmed case number and infection rate recorded. The infection rate is calculated by confirmed case number divided by the total population of that state.
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>The visualization is shown as a bubble cluster, each bubble represents a state and will be randomly distributed in the cluster every time you refresh the page. The color of the bubble shows how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
-        </h3>
-        <div id="d3_bubble_chart"></div>
-      </section>
+        <div class = 'box'>
+          <h3 id = "fig1"> bubble chart </h3>
+          <p>
+          <!-- <span>&emsp;&emsp;</span> -->
+          As an introduction to the contents of the website, this page focuses on the most important part of the whole topic: Confirmed COVID-19 Cases. The country is divided into 51 states (Porto Rico not include) with the corresponding confirmed case number and infection rate recorded. The infection rate is calculated by confirmed case number divided by the total population of that state.
+          <br> <br>The visualization is shown as a bubble cluster, each bubble represents a state and will be randomly distributed in the cluster every time you refresh the page. The color of the bubble shows how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
+          </p>
+          <div id="d3_bubble_chart"></div>
+        </div>
 
+      </section>
 
       <!-- Figure 2 -->
       <section id = "Fig2_map">
+        <div id = 'fig2'></div>
+        <div class = 'box'>
         <style>
           .state :hover{
-            fill: red;
+            fill: #d1f7ff;
           } 
         </style>
-        <h3>  
-        <span>&emsp;&emsp;</span>This page will contain 2 parts. The left part will be a bar chart. The x-axis of the bar chart will show 4 types of travel range: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). The y-axis will show the total number of trips in the country. Therefore, the bar chart will show the total number of each travel distance range during a specified time period. 
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>The right part of the bar chart will be a line plot. The x-axis will be the time and the y-axis will be the 4 types of travel distance ranges. You can select a period time directly on the line plot, and the left plot will show the data recorded during the time period you selected, and the y-axis of the bar chart may not show the total count anymore, since user may not select all the time available of the line plot. When you select one of the bars on the bar chart, the corresponding line on the line plot will also be highlighted.
-        </h3>
-        <div id="d3_interactive_Map"></div>
-        <div id = "info">
-        <h3> Click on a country to explore </h3>
-        </div>>
+        <h3> interactive map with line chart </h3>
+        <p>  
+          <!-- <span>&emsp;&emsp;</span> -->
+          This page will contain 2 parts. The left part will be a bar chart. The x-axis of the bar chart will show 4 types of travel range: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). The y-axis will show the total number of trips in the country. Therefore, the bar chart will show the total number of each travel distance range during a specified time period. 
+          <br> <br>The right part of the bar chart will be a line plot. The x-axis will be the time and the y-axis will be the 4 types of travel distance ranges. You can select a period time directly on the line plot, and the left plot will show the data recorded during the time period you selected, and the y-axis of the bar chart may not show the total count anymore, since user may not select all the time available of the line plot. When you select one of the bars on the bar chart, the corresponding line on the line plot will also be highlighted.
+          <br> <br>This page will contain 3 parts: a map of United States a statistical graph, and a data selection panel. The United States map will let the user to select the state he/she is interested in. The data selection panel lets you select one of the following 4 options:
+          <br> <br>Travel population/State population
+          <br> <br>Travel population/State area
+          <br> <br>Unemployment rate
+          <br> <br>Total trips of the state
+          <br> <br>The selected option will be displayed on the y-axis of the statistical graph, and the x-axis of the statistical graph will always show the time information, and the graph will show how the selected data changes with time.
+        </p>
+        <div id= "d3_interactive_Map"></div>
+        </div>
+        <!-- <div id = "info"></div>>  干嘛用的？ -->
       </section>
     
+      <!-- igure 3 -->
       <section id = "vegaDemo">
-        <h3>
-        <span>&emsp;&emsp;</span>This page will contain 3 parts: a map of United States a statistical graph, and a data selection panel. The United States map will let the user to select the state he/she is interested in. The data selection panel lets you select one of the following 4 options:
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>1.  Travel population/State population
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>2.  Travel population/State area
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>3.  Unemployment rate
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>4.  Total trips of the state
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>The selected option will be displayed on the y-axis of the statistical graph, and the x-axis of the statistical graph will always show the time information, and the graph will show how the selected data changes with time.
-        </h3>
-        <div id="view"></div>
+        <div class = 'box'> 
+          <h3 id = "fig3">trip distribution display</h3>
+          <!-- 缺文案！！ -->
+          <div id="view"></div>
+        </div> 
+        </div>
       </section>
-    
 
+      <!-- igure 4 -->
       <section id = "vs3">
-        <h3>
-        <span>&emsp;&emsp;</span>This page will contain 3 parts. A map of the United States, a bar chart, and a selection panel. The selection panel contains 6 different selections:
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>1.  Male
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>2.  Female
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>3.  Youth
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>4.  Adolescent
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>5.  Adult
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>6.  Senior
-        </h3>
-        <h3>
-        <span>&emsp;&emsp;</span>When user makes a (only one) selection, the system will calculate the ratio of the population of the selected group and the total population of each state and display the 5 states with the highest calculated ratio. These 5 states will be highlighted on the map of the United States to show where they are. The travel distance data of these 5 states will be summed up divided into the 4 travel distance ranges described on page 3 and show them on the bar chart. The x-axis of the bar chart will be the 4 travel distance ranges, the y-axis will be the travel population count. Each travel distance will have two bars stand side by side, one is from the data of 2019 and the other is from the data of 2020, to give users a better visualization of the travel pattern difference between a normal year and a year with COVID-19 pandemic. 
-        </h3>
+        <div class = 'box'>
+          <h3 id = "fig4">interactive map with barchart</h3>
+          <p>
+            This page will contain 3 parts. A map of the United States, a bar chart, and a selection panel. The selection panel contains 6 different selections:
+            <br> <br> Male
+            <br> <br> Female
+            <br> <br> Youth
+            <br> <br> Adolescent
+            <br> <br> Adult
+            <br> <br> Senior
+            <br> <br> When user makes a (only one) selection, the system will calculate the ratio of the population of the selected group and the total population of each state and display the 5 states with the highest calculated ratio. These 5 states will be highlighted on the map of the United States to show where they are. The travel distance data of these 5 states will be summed up divided into the 4 travel distance ranges described on page 3 and show them on the bar chart. The x-axis of the bar chart will be the 4 travel distance ranges, the y-axis will be the travel population count. Each travel distance will have two bars stand side by side, one is from the data of 2019 and the other is from the data of 2020, to give users a better visualization of the travel pattern difference between a normal year and a year with COVID-19 pandemic. 
+          </p>
         <button onclick="update('Adult_trips.csv')">Adult</button>
         <button onclick="update('child_trips.csv')">Child</button>
         <button onclick="update('Adolescence_trips.csv')">Adolescence</button>
         <button onclick="update('Senior_Adult_trips.csv')">Senior Adult</button>
         <div id="d3_Fig4"></div>
-
-        <!-- Script for figure 4 -->
         <script>
           // set the dimensions and margins of the graph
           var margin = {top: 30, right: 30, bottom: 70, left: 60},
@@ -236,11 +256,37 @@
           // Initialize plot
           update('Adult_trips.csv')
         </script>>
+        </div>
       </section>
 
+      <div class = 'box'>
+        <div id = 'about'></div>
+        <div class = 'content'>
+          <h3>about us </h3>
+          <p>
+          <!-- <span>&emsp;&emsp;</span> -->
+          The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. 
+          In different states of the countries, different travel behaviors can potentially result in very different disease spreading processes. 
+          This webpage will present you the relationship among confirmed COVID-19 cases, age groups, travel behaviors, unemployment rate and many other aspects of the United States in 4 interactive interfaces.
+            <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+      <!-- igure footer -->
       <div class="footer">
-        <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
-        <a href="http://www.washington.edu">University of Washington</a>
+              <ul>
+                <li>
+                  <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
+                </li>
+                <li>
+                  <a href="http://www.washington.edu">University of Washington</a>
+                </li>
+                <li>
+                  <p>👋</p>
+                </li>
+              </ul>
       </div>
 
       <!-- it is recommended to put js files before </body> -->
