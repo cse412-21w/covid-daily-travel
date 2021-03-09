@@ -59,13 +59,11 @@
         <div class = 'box'>
           <div id = 'intro'></div>
           <div class = 'content'>
-            <h3>intro </h3>
-            <p>
-            <!-- <span>&emsp;&emsp;</span> -->
-            The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. 
-            In different states of the countries, different travel behaviors can potentially result in very different disease spreading processes. 
-            This webpage will present you the relationship among confirmed COVID-19 cases, age groups, travel behaviors, unemployment rate and many other aspects of the United States in 4 interactive interfaces.
-              <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
+            <h3>INTRO </h3>
+              <p>
+              <!-- <span>&emsp;&emsp;</span> -->
+              The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different parts of the country, different types of people are doing different things that changed the pandemic in different scales, significantly or not, our behaviors are interfering with this world.
+                <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
             </p>
           </div>
         </div>
@@ -75,12 +73,11 @@
       <!-- Figure 1 -->
       <section id = "Fig_1">
         <div class = 'box'>
-          <h3 id = "fig1"> bubble chart </h3>
-          <p>
-          <!-- <span>&emsp;&emsp;</span> -->
-          As an introduction to the contents of the website, this page focuses on the most important part of the whole topic: Confirmed COVID-19 Cases. The country is divided into 51 states (Porto Rico not include) with the corresponding confirmed case number and infection rate recorded. The infection rate is calculated by confirmed case number divided by the total population of that state.
-          <br> <br>The visualization is shown as a bubble cluster, each bubble represents a state and will be randomly distributed in the cluster every time you refresh the page. The color of the bubble shows how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
-          </p>
+          <h3 id = "fig1"> Bubble Chart </h3>
+            <p>
+            <!-- <span>&emsp;&emsp;</span> -->
+            <br> <br>Let’s divide the whole country into states, in term of infection status, they appear to be very different. The difference can potentially result from travel behaviors, population, unemployment rate etc. and they all dramatically or slightly interfered the disease spreading processes. Macroscopically, whatever the effects from the factors are, the ultimate reflection we can observe is the confirmed cases in each state and the infection rate. The color of the bubbles below show how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
+            </p>
           <div id="d3_bubble_chart"></div>
         </div>
 
@@ -95,18 +92,13 @@
             fill: #d1f7ff;
           } 
         </style>
-        <h3> interactive map with line chart </h3>
-        <p>  
-          <!-- <span>&emsp;&emsp;</span> -->
-          This page will contain 2 parts. The left part will be a bar chart. The x-axis of the bar chart will show 4 types of travel range: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). The y-axis will show the total number of trips in the country. Therefore, the bar chart will show the total number of each travel distance range during a specified time period. 
-          <br> <br>The right part of the bar chart will be a line plot. The x-axis will be the time and the y-axis will be the 4 types of travel distance ranges. You can select a period time directly on the line plot, and the left plot will show the data recorded during the time period you selected, and the y-axis of the bar chart may not show the total count anymore, since user may not select all the time available of the line plot. When you select one of the bars on the bar chart, the corresponding line on the line plot will also be highlighted.
-          <br> <br>This page will contain 3 parts: a map of United States a statistical graph, and a data selection panel. The United States map will let the user to select the state he/she is interested in. The data selection panel lets you select one of the following 4 options:
-          <br> <br>Travel population/State population
-          <br> <br>Travel population/State area
-          <br> <br>Unemployment rate
-          <br> <br>Total trips of the state
-          <br> <br>The selected option will be displayed on the y-axis of the statistical graph, and the x-axis of the statistical graph will always show the time information, and the graph will show how the selected data changes with time.
-        </p>
+        <h3> Interactive Map with Line Chart </h3>
+          <p>  
+            <!-- <span>&emsp;&emsp;</span> -->
+            Let’s dive deeper. In the previous page, we mentioned that different infection status can result from different factors. Again, different states behave very differently, try click on one of the states on the map and you will see the changings of 4 different factors that interfere with the infection status along with time.
+            Travel population/State population reflects the portion of people traveled in the state, and if we take Travel population/State area into consideration, it will tell you the average travel population density of the state. Another potentially important factor to consider is the unemployment rate in the state, as its value determines people’s time staying home and traveling. The last factor yet to consider is the total trips of the state, and this is obviously important because a higher number tend to produce more COVID case.
+
+          </p>
         <div id= "d3_interactive_Map"></div>
         </div>
         <!-- <div id = "info"></div>>  干嘛用的？ -->
@@ -115,8 +107,10 @@
       <!-- igure 3 -->
       <section id = "vegaDemo">
         <div class = 'box'> 
-          <h3 id = "fig3">trip distribution display</h3>
-          <!-- 缺文案！！ -->
+          <h3 id = "fig3">Trip Distribution Display</h3>
+            <p>
+            Yes, people still travel, but for very different distances. Researches have shown that travel distances are highly related to the infection rate. The travel distance can be categorized into 4 types of travel ranges: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). Here you can see the number of each type of travel range in the whole country, along with the number of each types of travel every month. Chances of getting infected highly depend on how many people you meet and how long you are exposed to the public. Although many other factors may also interfere with the result, the relatively positive relationship between travel distance and chance of getting infected is certain. Less travel is always a safer choice.
+            <p>
           <div id="view"></div>
         </div> 
         </div>
@@ -125,17 +119,10 @@
       <!-- igure 4 -->
       <section id = "vs3">
         <div class = 'box'>
-          <h3 id = "fig4">interactive map with barchart</h3>
-          <p>
-            This page will contain 3 parts. A map of the United States, a bar chart, and a selection panel. The selection panel contains 6 different selections:
-            <br> <br> Male
-            <br> <br> Female
-            <br> <br> Youth
-            <br> <br> Adolescent
-            <br> <br> Adult
-            <br> <br> Senior
-            <br> <br> When user makes a (only one) selection, the system will calculate the ratio of the population of the selected group and the total population of each state and display the 5 states with the highest calculated ratio. These 5 states will be highlighted on the map of the United States to show where they are. The travel distance data of these 5 states will be summed up divided into the 4 travel distance ranges described on page 3 and show them on the bar chart. The x-axis of the bar chart will be the 4 travel distance ranges, the y-axis will be the travel population count. Each travel distance will have two bars stand side by side, one is from the data of 2019 and the other is from the data of 2020, to give users a better visualization of the travel pattern difference between a normal year and a year with COVID-19 pandemic. 
-          </p>
+          <h3 id = "fig4">Interactive Map with Barchart</h3>
+            <p>
+              People are travelling, but different age groups travels differently, and people’s travel patterns are very different between a normal year and a year with pandemic. When we put them side by side, it becomes more obvious that the overall travels have declined a lot in the past year. Child adolescence and senior adults have a declination in all types of travel ranges; however, the declination is not as dramatical as those of the Adult. Adults seems to be scared of the disease the most, you can easily recognize this if you select different groups from button and see the visualization.
+            </p>
         <button onclick="update('Adult_trips.csv')">Adult</button>
         <button onclick="update('child_trips.csv')">Child</button>
         <button onclick="update('Adolescence_trips.csv')">Adolescence</button>
@@ -262,14 +249,19 @@
       <div class = 'box'>
         <div id = 'about'></div>
         <div class = 'content'>
-          <h3>about us </h3>
-          <p>
-          <!-- <span>&emsp;&emsp;</span> -->
-          The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. 
-          In different states of the countries, different travel behaviors can potentially result in very different disease spreading processes. 
-          This webpage will present you the relationship among confirmed COVID-19 cases, age groups, travel behaviors, unemployment rate and many other aspects of the United States in 4 interactive interfaces.
-            <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
-          </p>
+          <h3>About Us </h3>
+            <p>
+            <!-- <span>&emsp;&emsp;</span> -->
+            Yifan Ling: Know about everything except knowledge about his major<br />
+            <br />
+            Zhijun Liu: Professional photographer with a 4GB storage card<br />
+            <br />
+            Kairui Huang: For some reason, he is the sunshine of our group<br />
+            <br />
+            Lu Liu: A random beautiful girl<br />
+            <br />
+              <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
+            </p>
         </div>
       </div>
     </section>
