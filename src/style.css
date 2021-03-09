@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 { font-size: 24pt; margin:  20px 10px 10px 15px; line-height: 28px;
-     letter-spacing: 0.05em; line-height: 0;
+     letter-spacing: 0.06em; line-height: 0;
      text-shadow: 
      -.04em -.04em  #05d9e8, 
      .04em -.04em  #05d9e8, 
@@ -57,43 +57,43 @@ p { font-size: 11pt; margin: 5px 0 10px 15px; color: #d1f7ff; line-height: 20 px
     background-color: #000000;
 }
 /* box effect copied from  */
-  .box {
+  .box1 {
     vertical-align: middle;
-    box-shadow: 0px 0px 20px #d1f7ff;
+    box-shadow: 0px 0px 40px #d1f7ff;
     margin-left: 22%;
     height: 787px;
-    border: 3px solid #d1f7ff;
+    border: 0.5px solid #d1f7ff;
     background-color:  #000000;
     width: 122%;
 }
 
-  .shadow {
+.box2 {
+  vertical-align: middle;
+  box-shadow: 0px 0px 40px #d1f7ff;
+  margin-left: 22%;
+  height: 890px;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  width: 122%;
+}
+
+.box3 {
+  vertical-align: middle;
+  box-shadow: 0px 0px 40px #d1f7ff;
+  margin-left: 22%;
+  height: 1087px;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  width: 122%;
+}
+
+.shadow {
     filter: drop-shadow(5px 5px 10px #005678) drop-shadow(-5px -5px 5px #005678);
   }
 /* glow effect version 2 */
   /* .shadow {
   filter: drop-shadow(1px 1px 1px #05d9e8) drop-shadow(-1px -1px 10px #05d9e8);
 } */
-
-.triangle-wrapper {
-  width: 700px;
-  height: 700px;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background-color: #ff00ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.triangle {
-  width: calc(700px - 30px);
-  height: calc(700px - 30px);
-  background-color: hsl(210, 50%, 14%);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  margin-top: 10px;
-  filter: blur(115px) drop-shadow(-10px -10px 75px #ff00ff);
-}
-
 
 #d3_bubble_chart{
   display: flex;
@@ -155,7 +155,6 @@ li:hover ~ li p {
   75% {transform: rotate(-15deg);}
 }
 
-
 /* for title */
 @font-face {
   font-family: neon;
@@ -163,7 +162,6 @@ li:hover ~ li p {
 }
 
 .container {
-  
   display: table-cell;
   text-align: center;
   vertical-align: middle;
@@ -223,8 +221,8 @@ li:hover ~ li p {
 }
 
 /* sidebar copied from https://codepen.io/sreisner/pen/KazJmO */
-
 .sidebar {
+  box-shadow: 0px 0px 40px #d1f7ff;
   position: fixed;
   width: 15%;
   height: 100vh;
@@ -247,16 +245,16 @@ li:hover ~ li p {
   font-weight: bold;
 }
 
-.nav ul {
+nav ul {
   list-style: none;
 }
 
-.nav ul li {
+nav ul li {
     position: relative;
     margin: 3.2em 0;
 }
     
-.nav ul li {
+nav ul li {
     line-height: 10em;
     text-transform: uppercase;
     text-decoration: none;
@@ -266,21 +264,34 @@ li:hover ~ li p {
     transition: all ease-out 300ms;
 }
     
-.nav ul li a:visited {
+nav ul li a:visited {
   color: #d1f7ff;
 }
 
-.nav ul li a:not(.active)::after {
+nav ul li a:not(.active)::after {
       opacity: 0.2;
     }
   
-.nav ul li a:not(.active):hover {
+nav ul li a:not(.active):hover {
       color: rgba(#FFF, 0.75);
     } 
 
-.nav ul li a:hover {
-  filter: drop-shadow(5px 5px 10px #005678) drop-shadow(-5px -5px 5px #005678); 
-} 
+/* nav ul li a:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.3em;
+      background: black;
+      left: 0;
+      bottom: auto;
+      background-image: linear-gradient(to right, #5e42a6, #b74e91)
+    } */
+
+nav ul li a:hover {
+  filter: drop-shadow(5px 5px 20px #d1f7ff) drop-shadow(-5px -5px 5px #05d9e8); 
+}
+
+
 
 .led {
   width: 20px;
