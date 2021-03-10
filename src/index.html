@@ -109,7 +109,7 @@
         </div>
       </section>
     
-      <!-- igure 3 -->
+      <!-- Figure 3 -->
       <section id = "vegaDemo">
         <div class = 'container1'>
           <div id = 'fig3'></div>
@@ -127,7 +127,7 @@
         </div>
       </section>
 
-            <!-- Figure 4 -->
+      <!-- Figure 4 -->
       <section class = "Figure_4">
         <div class = 'container1'>
         <div class = 'box3'>
@@ -165,7 +165,7 @@
             .attr("width", width_map+400)
             .attr("height", height_map)
             .append("g")
-              .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+              .attr("transform", "translate(" + margin.left + "," + 90 + ")")
 
           // Map and projection
           var projection = d3.geoMercator()
@@ -209,7 +209,7 @@
                       .attr("d", d3.geoPath().projection(projection)
                       )
                     .style("stroke", "rgb(157, 91, 212)")
-                    .attr("stroke-width", 15)
+                    .attr("stroke-width", 18)
                     .style("opacity", 0.4)
 
                   // update map
@@ -223,8 +223,8 @@
                         .attr("d", d3.geoPath().projection(projection)
                         )
                       .style("stroke", "#deeaee")
-                      .attr("stroke-width", 1)
-                      .style("opacity", 0.5)
+                      .attr("stroke-width", 2)
+                      .style("opacity", 0.4)
 
                   w
                     .exit()
@@ -264,19 +264,22 @@
               })
           }
           
-          // create a tooltip
-          var Tooltip_bar = d3.select("#Fig4_bar")
-            .append("div")
-            .attr("class", "tooltip_bar")
+          
 
           // Bar Chaert
           // append the svg object to the body of the page
+
           var svg = d3.select("#Fig4_bar")
             .append("svg")
               .attr("width", width + margin.left + margin.right)
               .attr("height", height + margin.top + margin.bottom)
             .append("g")
-              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+          // create a tooltip
+          var Tooltip_bar = d3.select("#Fig4_bar")
+            .append("div")
+            .attr("class", "tooltip_bar")
 
           // Initialize the X axis
           var x = d3.scaleBand()
@@ -294,20 +297,11 @@
 
           var subgroups = [];
           var groups = [];
-
-          // add legend
-          svg
-            svg.append("circle").attr("cx",280).attr("cy",20).attr("r", 6).style("fill", "rgb(5, 232, 183)")
-            svg.append("circle").attr("cx",280).attr("cy",50).attr("r", 6).style("fill", "rgb(255, 103, 242)")
-            svg.append("text").attr("x", 290).attr("y", 20).text("2019").style("font-size", "15px").style("fill", "rgb(5, 232, 183)").attr("alignment-baseline","middle")
-            svg.append("text").attr("x", 290).attr("y", 50).text("2020").style("font-size", "15px").style("fill", "rgb(255, 103, 242)").attr("alignment-baseline","middle")
-
   
           function update_ymax(newYmax) {
             const ymax = newYmax
           }
           
-
           // A function that create / update the plot for a given variable:
           function update(selectedVar) {
 
@@ -362,15 +356,97 @@
                 .range([0, x.bandwidth()])
                 .padding([0.05])
 
-              // color palette = one color per subgroup
-              var color = d3.scaleOrdinal()
-                .domain(subgroups)
-                .range(["rgb(110, 255, 224)", "rgb(255, 133, 245)"])
-
               // variable u: map data to existing bars
               var u = svg.selectAll("rect")
                 .data(data)
 
+              /************* 调渐变 ****************/
+
+              // 调整渐变颜色
+              const bgGradient1 = svg
+                .append('linearGradient')
+                .attr('id', 'bg-gradient1')
+                .attr('gradientTransform', 'rotate(90)');
+              bgGradient1
+                .append('stop')
+                .attr('stop-color', 'rgb(5, 232, 183)')
+                .attr('offset', '0%');
+              bgGradient1
+                .append('stop')
+                .attr('stop-color', 'white')
+                .attr('offset', '100%');
+
+              // 第二种渐变颜色
+              const bgGradient2 = svg
+                .append('linearGradient')
+                .attr('id', 'bg-gradient2')
+                .attr('gradientTransform', 'rotate(90)');
+              bgGradient2
+                .append('stop')
+                .attr('stop-color', 'rgb(255, 103, 242)')
+                .attr('offset', '0%');
+              bgGradient2
+                .append('stop')
+                .attr('stop-color', 'white')
+                .attr('offset', '100%');
+
+              // 把整个背景涂成渐变颜色
+              svg
+              .append('g')
+                .attr('clip-path', `url(#clip-bar-rects)`)
+              .append('rect')
+                .attr('x', 5)
+                .attr('y', 0)
+                .attr('width', width)
+                .attr('height', height)
+
+              // color palette = one color per subgroup
+              var color = d3.scaleOrdinal()
+                .domain(subgroups)
+                //.range(["url(#bg-gradient1)", "url(#bg-gradient2)"])
+                .range(["rgb(110, 255, 224)", "rgb(255, 103, 242)"])
+              
+              // 把背景的渐变颜色剪成柱状型
+              svg
+                .attr('id', 'clip-bar-rects')
+                .selectAll('bar')
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function(d) { return "translate(" + x(d.dist) + ",0)"; })
+                .selectAll("rect")
+                .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
+                .enter()
+                .append('rect')
+                  .attr("x", function(d) { return xSubgroup(d.key); })
+                  .attr("y", function(d) { return y(d.value); })
+                  .attr("width", xSubgroup.bandwidth())
+                  .attr("height", function(d) { return height - y(d.value); })
+                  .style('fill', function(d) { return color(d.key); })
+                  //.attr("stroke-width", 2)
+                  //.style("filter", "url(#drop-shadow)")
+                  //.attr("stroke", function(d) { return color(d.key); })
+                  //.style("text-shadow","0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff67f2, 0 0 20px #ff67f2")
+                  //.attr("fill-opacity", .6)
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+
+              u
+                .exit()
+                .remove()
+              
+              // add legend
+              svg
+                svg.append("circle").attr("cx",280).attr("cy",20).attr("r", 6).style("fill", "rgb(5, 232, 183)")
+                svg.append("circle").attr("cx",280).attr("cy",50).attr("r", 6).style("fill", "rgb(255, 103, 242)")
+                svg.append("text").attr("x", 290).attr("y", 20).text("2019").style("font-size", "15px").style("fill", "rgb(5, 232, 183)").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 290).attr("y", 50).text("2020").style("font-size", "15px").style("fill", "rgb(255, 103, 242)").attr("alignment-baseline","middle")
+              
+              
+              /************* MOD ****************/
+
+              /* 
               // Show the bars
               svg.append("g")
                 .selectAll("g")
@@ -411,7 +487,8 @@
 
               u
                 .exit()
-                .remove()  
+                .remove()
+              */
             })
              
           }
