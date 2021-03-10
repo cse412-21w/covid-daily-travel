@@ -112,6 +112,16 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
   justify-content: flex-start;
 }
 
+.vega {
+  position: relative;
+  color: #d1f7ff;
+  margin: 10%;
+  margin-top: 5%;
+  /* padding: 15px 20px; */
+  /* box-sizing: border-box; */
+  background-color: #000000;
+}
+
   .title, .title h1, .title a {
     color: #d1f7ff;
     font-size: 24pt;
@@ -173,7 +183,7 @@ li:hover ~ li p {
 }
 
 .container {
-  display: table-footer-group;
+  /* display: table-footer-group; */
   text-align: center;
   vertical-align: middle;
 }
