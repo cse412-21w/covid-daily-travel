@@ -5,7 +5,7 @@ var margin = {top: 10, bottom: 10, left: 100, right: 100},
 
 var margin_line = {top: 0, right: 20, bottom: 50, left: 70},
     width_line = 800 - margin_line.left/1.5 - margin_line.right,
-    height_line = 300 - margin_line.top - margin_line.bottom;
+    height_line = 320 - margin_line.top - margin_line.bottom;
 
 var htmlCategory = (function(){
   var mapping = {
@@ -55,7 +55,8 @@ var svg = d3.select("#line")
               // for debug
               // console.log(print, i.name);
 
-var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%b"));
+var xAxis = d3.axisBottom(x)
+              .tickFormat(d3.timeFormat("%b"));
 
 var wrapper = d3.select('#Category-selector');
 
@@ -80,7 +81,10 @@ function drawLine(name){
   svg.append("g")
   .attr("transform", "translate(0," + height_line + ")")
   .style("color", "rgb(110,255,224)")
-  .call(xAxis);
+  .call(xAxis)
+  .selectAll("text") 
+  .style("text-anchor", "middle")
+  .attr("transform", "translate(35,0)");
 
   // Add the Y Axis
   svg.append("g").call(d3.axisLeft(y))
@@ -94,6 +98,7 @@ function drawLine(name){
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Number of trips / Population (#/person)");
 
   // text label for the x axis
@@ -101,10 +106,11 @@ function drawLine(name){
       .attr("transform","translate(" + (width_line/2) + " ," + (height_line + margin_line.top + 35) + ")")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Date");
 
   svg.append("text")                
-        .attr("x", 555)
+        .attr("x", 570)
         .attr("y", 40)
         .style("text-anchor", "middle")
         .style("font-size", "40px")
@@ -144,7 +150,10 @@ function drawLine_area_rate(name){
   svg.append("g")
   .attr("transform", "translate(0," + height_line + ")")
   .style("color", "rgb(110,255,224)")
-  .call(xAxis);
+  .call(xAxis)
+  .selectAll("text") 
+  .style("text-anchor", "middle")
+  .attr("transform", "translate(35,0)");
 
   // Add the Y Axis
   svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)");
@@ -157,6 +166,7 @@ function drawLine_area_rate(name){
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Number of trips / Area (#/mi^2)");
 
   // text label for the x axis
@@ -164,10 +174,11 @@ function drawLine_area_rate(name){
       .attr("transform","translate(" + (width_line/2) + " ," + (height_line + margin_line.top + 35) + ")")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Date");
 
   svg.append("text")                
-        .attr("x", 555)
+        .attr("x", 570)
         .attr("y", 40)
         .style("text-anchor", "middle")
         .style("font-size", "40px")
@@ -222,6 +233,7 @@ function drawLine_unemployment_rate(name){
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Unemployment Rate (%)");
 
   // text label for the x axis
@@ -229,10 +241,11 @@ function drawLine_unemployment_rate(name){
       .attr("transform","translate(" + (width_line/2) + " ," + (height_line + margin_line.top + 35) + ")")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Date");
 
   svg.append("text")                // text label for the x axis
-        .attr("x", 555)
+        .attr("x", 570)
         .attr("y", 40)
         .style("text-anchor", "middle")
         .style("font-size", "40px")
@@ -274,7 +287,10 @@ function drawLine_NumberOfTrips(name){
   svg.append("g")
   .attr("transform", "translate(0," + height_line + ")")
   .style("color", "rgb(110,255,224)")
-  .call(xAxis);
+  .call(xAxis)
+  .selectAll("text") 
+  .style("text-anchor", "middle")
+  .attr("transform", "translate(35,0)");
 
   // Add the Y Axis
   svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)");
@@ -287,6 +303,7 @@ function drawLine_NumberOfTrips(name){
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Number of trips (Millions)");
 
   // text label for the x axis
@@ -294,6 +311,7 @@ function drawLine_NumberOfTrips(name){
       .attr("transform","translate(" + (width_line/2) + " ," + (height_line + margin_line.top + 35) + ")")
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
+      .style("text-shadow","0 0 3px #fff")
       .text("Date");
 
   svg.append("text")                // text label for the x axis
@@ -316,6 +334,24 @@ function drawLine_NumberOfTrips(name){
   .attr("d", valueline)
   .transition()
   .ease(d3.easeLinear);
+  /*
+   * Glow effects (Optional)
+   */
+    // const defs = svg.append('defs')
+    // const glowDeviation = '4.5'
+
+    // // Filter for the outside glow
+    // const filter = defs.append('filter').attr('id', 'glow')
+    // filter.append('feGaussianBlur')
+    //     .attr('stdDeviation', glowDeviation)
+    //     .attr('result', 'coloredBlur')
+        
+    // const feMerge = filter.append('feMerge')
+    // feMerge.append('feMergeNode').attr('in', 'coloredBlur')
+    // feMerge.append('feMergeNode').attr('in', 'SourceGraphic')
+
+    // // Add the glow!!
+    // d3.selectAll('.glowed').style('filter', 'url(#glow)')
   }) 
 };
 
