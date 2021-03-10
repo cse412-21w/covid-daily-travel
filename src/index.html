@@ -111,6 +111,7 @@
       <!-- igure 3 -->
       <section id = "vegaDemo">
         <div class = 'container1'>
+          <div id = 'fig3'></div>
           <div class = 'box1'> 
             <!-- <h3 id = "fig3">Trip Distribution Display</h3> -->
               <p>
@@ -127,8 +128,12 @@
 
             <!-- Figure 4 -->
       <section class = "Figure_4">
-        <div class = 'box_fig4'>
-          <h3> Fig4_map:</h3>
+        <div class = 'container1'>
+        <div class = 'box3'>
+          <div id = fig4></div>
+          <p>
+            People are travelling, but different age groups travels differently, and people’s travel patterns are very different between a normal year and a year with pandemic. When we put them side by side, it becomes more obvious that the overall travels have declined a lot in the past year. Child adolescence and senior adults have a declination in all types of travel ranges; however, the declination is not as dramatical as those of the Adult. Adults seems to be scared of the disease the most, you can easily recognize this if you select different groups from button and see the visualization.
+          </p>
           <button class="fig4_button1"; onclick="update('Adult_trips.csv'); updatemap('Adult'); update_ymax(45000)">Adult</button>
           <button class="fig4_button2"; onclick="update('child_trips.csv'); updatemap('Child'); update_ymax(25000)">Child</button>
           <button class="fig4_button3"; onclick="update('Adolescence_trips.csv'); updatemap('Adolescence'); update_ymax(30000)">Adolescence</button>
@@ -138,7 +143,7 @@
             <div id="Fig4_bar"></div>
           </div>
         </div>
-        
+
         <script>
           // Map Chart
           const width_map = 350;
@@ -216,7 +221,7 @@
                         .attr("fill", "black")
                         .attr("d", d3.geoPath().projection(projection)
                         )
-                      .style("stroke", "white")
+                      .style("stroke", "#deeaee")
                       .attr("stroke-width", 1)
                       .style("opacity", 0.5)
 
@@ -415,6 +420,7 @@
           update('Adult_trips.csv');
           
         </script>
+        </div>
 
       </section>
 
