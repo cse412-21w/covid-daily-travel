@@ -97,6 +97,7 @@
                 <!-- <span>&emsp;&emsp;</span> -->
                 Let’s dive deeper. In the previous page, we mentioned that different infection status can result from different factors. Again, different states behave very differently, try click on one of the states on the map and you will see the changings of 4 different factors that interfere with the infection status along with time.
                 Travel population/State population reflects the portion of people traveled in the state, and if we take Travel population/State area into consideration, it will tell you the average travel population density of the state. Another potentially important factor to consider is the unemployment rate in the state, as its value determines people’s time staying home and traveling. The last factor yet to consider is the total trips of the state, and this is obviously important because a higher number tend to produce more COVID case.
+
               </p>
             <div id="states">
               <div id="map-wrapper"></div>
@@ -124,64 +125,211 @@
         </div>
       </section>
 
-      <!-- igure 4 -->
-      <section id = "vs3">
+            <!-- Figure 4 -->
+      <section class = "Figure_4">
+        <div class = 'box_fig4'>
+          <h3> Fig4_map:</h3>
+          <button class="fig4_button1"; onclick="update('Adult_trips.csv'); updatemap('Adult'); update_ymax(45000)">Adult</button>
+          <button class="fig4_button2"; onclick="update('child_trips.csv'); updatemap('Child'); update_ymax(25000)">Child</button>
+          <button class="fig4_button3"; onclick="update('Adolescence_trips.csv'); updatemap('Adolescence'); update_ymax(30000)">Adolescence</button>
+          <button class="fig4_button4"; onclick="update('Senior_Adult_trips.csv'); updatemap('Senior_Adult'); update_ymax(12000)">Senior Adult</button>
+          <div class="fig4_container"></div>
+            <div id="Fig4_map"></div>
+            <div id="Fig4_bar"></div>
+          </div>
+        </div>
 
-      <div class = 'container1'>
-        <div class = 'box3'>
-          <h3 id = "fig4">Interactive Map with Barchart</h3>
-            <p>
-              People are travelling, but different age groups travels differently, and people’s travel patterns are very different between a normal year and a year with pandemic. When we put them side by side, it becomes more obvious that the overall travels have declined a lot in the past year. Child adolescence and senior adults have a declination in all types of travel ranges; however, the declination is not as dramatical as those of the Adult. Adults seems to be scared of the disease the most, you can easily recognize this if you select different groups from button and see the visualization.
-            </p>
-        <button onclick="update('Adult_trips.csv')">Adult</button>
-        <button onclick="update('child_trips.csv')">Child</button>
-        <button onclick="update('Adolescence_trips.csv')">Adolescence</button>
-        <button onclick="update('Senior_Adult_trips.csv')">Senior Adult</button>
-        <div id="d3_Fig4"></div>
         <script>
-          // set the dimensions and margins of the graph
-          var margin = {top: 30, right: 30, bottom: 70, left: 60},
-              width = 460 - margin.left - margin.right,
-              height = 400 - margin.top - margin.bottom;
+          // Map Chart
+          const width_map = 350;
+          const height_map = 550;
 
+          const margin = {
+                  top: 50,
+                  bottom: 50,
+                  left: 50,
+                  right: 50,
+                };
+          const width = 350;
+          const height = 450;
+
+          // The svg
+          var svg_map = d3.select("#Fig4_map")
+            .append("svg")
+            .attr("width", width_map+400)
+            .attr("height", height_map)
+            .append("g")
+              .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+          // Map and projection
+          var projection = d3.geoMercator()
+              .center([-108, 35])        // GPS of location to zoom on
+              .scale(650)                       // This is like the zoom
+              .translate([ width_map/2, height_map/2 ])
+
+          // create a tooltip
+          var Tooltip_map = d3.select("#Fig4_map")
+            .append("div")
+            .attr("class", "tooltip_map")
+
+          function updatemap(ageGroup) {
+              d3.json("https://raw.githubusercontent.com/ray439026783/covid-daily-travel/ray439026783-patch-4/static/highlight_"+ageGroup+"_trips.json").then(function(state_data) {
+
+              // Load external data and boot
+              d3.json("https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json").then(function(data) {
+
+                  // Three function that change the tooltip when user hover / move / leave a cell
+                  var mouseover = function(d) {
+                    Tooltip_map.style("opacity", 0.8)
+                  }
+
+                  var mousemove = function(d,i) {
+                    Tooltip_map.html('State: ' + i.state + "<br>" + "Percentage of " + ageGroup + ": "+ i.Pct)
+                      .style("left", (d3.select(this).attr('cx')-150) + "px")
+                      .style("bottom", (d3.select(this).attr('cy')) + "px")
+                  }
+
+                  var mouseleave = function(d) {
+                    Tooltip_map.style("opacity", 0)
+                  }
+
+                  // Draw the map
+                  svg_map.append("g")
+                    .selectAll("path")
+                    .data(data.features)
+                    .enter()
+                    .append("path")
+                      .attr("fill", "black")
+                      .attr("d", d3.geoPath().projection(projection)
+                      )
+                    .style("stroke", "rgb(157, 91, 212)")
+                    .attr("stroke-width", 15)
+                    .style("opacity", 0.4)
+
+                  // update map
+                  var w = svg_map.append("g")
+                      .selectAll("path")
+                      .data(data.features)
+
+                  w.enter()
+                      .append("path")
+                        .attr("fill", "black")
+                        .attr("d", d3.geoPath().projection(projection)
+                        )
+                      .style("stroke", "white")
+                      .attr("stroke-width", 1)
+                      .style("opacity", 0.5)
+
+                  w
+                    .exit()
+                    .remove()
+
+                  // Add a scale for bubble size
+                  var size = d3.scaleLinear()
+                    .domain([1,100])  // What's in the data
+                    .range([ 8, 20])  // Size in pixel
+
+                  // variable v: map data to exisitng ciricles
+                  var v = svg_map.selectAll()
+                    .data(state_data)
+
+                  // update ciricle
+                  v
+                    .enter()
+                    .append("circle")
+                    .merge(v)
+                      .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
+                      .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
+                      .attr("r", 10)
+                      .attr("class", "circle")
+                      .style("fill", "rgb(255, 133, 245)")
+                      .attr("stroke", "rgb(110, 255, 224)")
+                      .attr("stroke-width", 3)
+                      .attr("fill-opacity", .6)
+                    .on("mouseover", mouseover)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseleave)
+
+                  v
+                    .exit()
+                    .remove()
+
+                  })
+              })
+          }
+          
+          // create a tooltip
+          var Tooltip_bar = d3.select("#Fig4_bar")
+            .append("div")
+            .attr("class", "tooltip_bar")
+
+          // Bar Chaert
           // append the svg object to the body of the page
-          var svg = d3.select("#d3_Fig4")
+          var svg = d3.select("#Fig4_bar")
             .append("svg")
               .attr("width", width + margin.left + margin.right)
               .attr("height", height + margin.top + margin.bottom)
             .append("g")
-              .attr("transform",
-                    "translate(" + margin.left + "," + margin.top + ")");
+              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
           // Initialize the X axis
           var x = d3.scaleBand()
-            .range([ 0, width ])
+            .range([ 0, width + margin.left + margin.right])
             .padding(0.2);
           var xAxis = svg.append("g")
+            .attr("class", "axis_fig4")
             .attr("transform", "translate(0," + height + ")")
 
           // Initialize the Y axis
           var y = d3.scaleLinear()
             .range([ height, 0]);
           var yAxis = svg.append("g")
-            .attr("class", "myYaxis")
+            .attr("class", "axis_fig4")
 
           var subgroups = [];
           var groups = [];
+
+          // add legend
+          svg
+            svg.append("circle").attr("cx",280).attr("cy",20).attr("r", 6).style("fill", "rgb(5, 232, 183)")
+            svg.append("circle").attr("cx",280).attr("cy",50).attr("r", 6).style("fill", "rgb(255, 103, 242)")
+            svg.append("text").attr("x", 290).attr("y", 20).text("2019").style("font-size", "15px").style("fill", "rgb(5, 232, 183)").attr("alignment-baseline","middle")
+            svg.append("text").attr("x", 290).attr("y", 50).text("2020").style("font-size", "15px").style("fill", "rgb(255, 103, 242)").attr("alignment-baseline","middle")
+
+  
+          function update_ymax(newYmax) {
+            const ymax = newYmax
+          }
+          
 
           // A function that create / update the plot for a given variable:
           function update(selectedVar) {
 
             // Parse the Data
-            d3.csv("https://raw.githubusercontent.com/ray439026783/covid-daily-travel/main/static/" + selectedVar).then(function(data) {
+            d3.csv("https://raw.githubusercontent.com/ray439026783/covid-daily-travel/ray439026783-patch-5/static/" + selectedVar).then(function(data) {
+
+              var mouseover = function(d) {
+                  Tooltip_bar.style("opacity", 0.8)
+                }
+
+              
+              var mousemove = function(d,i) {
+                Tooltip_bar.html("Number of Trips: " + i.value + ' million')
+                  .style("left", (d3.select(this).attr('x')) + "px")
+                  .style("top", (d3.select(this).attr('y')) + "px")
+              }
+
+              var mouseleave = function(d) {
+                Tooltip_bar.style("opacity", 0)
+              }
               
               // List of subgroups = header of the csv files = soil condition here
               // var subgroups = data.columns.slice(1)
-              var subgroups = ['2019','2020']
+              var subgroups = ['year2019','year2020']
 
               // List of groups = species here = value of the first column called group -> I show them on the X axis
               // var groups = d3.map(data, function(d){return(d.dist)}).keys()
-              var groups= ['walk','short_drive','med_drive','long_drive']
+              var groups= ['Walkable', 'Commute', 'Outdoor', 'Traveling']
 
               // X axis
               x.domain(groups)
@@ -191,10 +339,14 @@
               xAxis.transition().duration(1000).call(d3.axisBottom(x))
 
               // Add Y axis
-              // const ymax = d3.max(data, function(d) { return (d[2019])});
-              
-              y.domain([0, 85000])
+              // const ymax = d3.max(data, function(d) { return d.year2019});
+              // const ymax = d3.max(data, function(d) { return +d.value; })
+
+              y.domain([0, 45000])
                 .range([ height, 0 ]);
+
+              //y.domain([0, ymax])
+              //  .range([ height, 0 ]);
 
               yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
@@ -207,7 +359,7 @@
               // color palette = one color per subgroup
               var color = d3.scaleOrdinal()
                 .domain(subgroups)
-                .range(['#e41a1c','#377eb8'])
+                .range(["rgb(110, 255, 224)", "rgb(255, 133, 245)"])
 
               // variable u: map data to existing bars
               var u = svg.selectAll("rect")
@@ -223,12 +375,20 @@
                 .attr("transform", function(d) { return "translate(" + x(d.dist) + ",0)"; })
                 .selectAll("rect")
                 .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
-                .enter().append("rect")
+                .enter()
+                .append("rect")
                   .attr("x", function(d) { return xSubgroup(d.key); })
                   .attr("y", function(d) { return y(d.value); })
                   .attr("width", xSubgroup.bandwidth())
                   .attr("height", function(d) { return height - y(d.value); })
-                  .attr("fill", function(d) { return color(d.key); });
+                  .attr("fill", function(d) { return color(d.key); })
+                  // .attr('strok', 'red')
+                  // .attr('broder-radius', 150)
+                  // .attr('opacity', 0.5)
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+
 
               // update bars
               u
@@ -241,7 +401,7 @@
                   .attr("y", function(d) { return y(d.value); })
                   .attr("width", xSubgroup.bandwidth())
                   .attr("height", function(d) { return height - y(d.value); })
-                  .attr("fill", function(d) { return color(d.key); });
+                  .attr("fill", function(d) { return color(d.key); })
 
               u
                 .exit()
@@ -251,10 +411,11 @@
           }
 
           // Initialize plot
-          update('Adult_trips.csv')
-        </script>>
-        </div>
-      </div>
+          updatemap('Adult');
+          update('Adult_trips.csv');
+          
+        </script>
+
       </section>
 
       <div class = 'container1'>
