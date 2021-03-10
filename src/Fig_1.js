@@ -3,7 +3,7 @@ import Total_Covid_State_2020 from '../static/Total_Covid_State_2020.csv'
 // bubbleChart creation function; instantiate new bubble chart given a DOM element to display it in and a dataset to visualise
 function bubbleChart() {
   const width = 1100;
-  const height = 650;
+  const height = 900;
 
   // location to centre the bubbles
   const centre = { x: width/2, y: height/2 };
@@ -37,7 +37,7 @@ function bubbleChart() {
   // set up colour scale
   const fillColour = d3.scaleLinear()
      .domain([0, 15000000, 30000000, 174400383])
-     .range(["#0074D9", "#7FDBFF", "#39CCCC", "#3D9970"]);
+     .range(["#d1f7ff", "#05d9e8", "#00b7ff", "#005678"]);
 
   // data manipulation function takes raw data from csv and converts it into an array of node objects
   // each node will store data and visualisation values to draw a bubble
@@ -51,15 +51,15 @@ function bubbleChart() {
     // size bubbles based on area
     const radiusScale = d3.scaleSqrt()
       .domain([0, maxSize])
-      .range([0, 85])
+      .range([10, 80])
 
     // use map() to convert raw data into node data
     const myNodes = rawData.map(d => ({
       ...d,
       radius: radiusScale(+d.Confrimed_Case),
       size: +d.Confrimed_Case,
-      x: Math.random() * 1000,
-      y: Math.random() * 700
+      x: Math.random() * 1200,
+      y: Math.random() * 500
     }))
 
     return myNodes;
@@ -76,6 +76,8 @@ function bubbleChart() {
       .append('svg')
       .attr('width', width)
       .attr('height', height)
+      .append('g')
+        .attr('transform', 'translate('+0+','+50+')')
 
     // bind nodes data to circle elements
     const elements = svg.selectAll('.bubble')
@@ -88,6 +90,9 @@ function bubbleChart() {
       .classed('bubble', true)
       .attr('r', d => d.radius)
       .attr('fill', d => fillColour(d.Confrimed_Case))
+      .attr('stroke',"#66d4ff")
+      .attr('stroke-width','3px')
+      .attr('stroke-opacity',0.5)
 
     // labels
     labels = elements
