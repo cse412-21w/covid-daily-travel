@@ -41,30 +41,33 @@
               </ul>
             </nav>
           </aside>
+      </section>
 
-        <div class = 'box1'>
-          <div id="welcome"></div>
-          <div class="content">
-            <div class="container">
-              <div class="neon">COVID-19 VS  </div>
-              <div class="flux">TRAFFIC </div>
+      <section>
+        <div class = 'container1'>
+          <div class = 'box1'>
+            <div id="welcome"></div>
+            <div class="content">
+              <div class="container">
+                <div class="neon">COVID-19 VS  </div>
+                <div class="flux">TRAFFIC </div>
+              </div>
+
             </div>
-            <!-- <div class = 'shadow'>
-              <h1>CSE 412 Demo</h1>
-              <h2>Final Project</h2>
-            </div> -->
           </div>
         </div>
 
-        <div class = 'box1'>
-          <div id = 'intro'></div>
-          <div class = 'content'>
-            <h3>INTRO </h3>
-              <p>
-              <!-- <span>&emsp;&emsp;</span> -->
-              The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different parts of the country, different types of people are doing different things that changed the pandemic in different scales, significantly or not, our behaviors are interfering with this world.
-                <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
-            </p>
+        <div class = 'container1'>
+          <div class = 'box1'>
+            <div id = 'intro'></div>
+            <div class = 'content'>
+              <h3>INTRO </h3>
+                <p>
+                <!-- <span>&emsp;&emsp;</span> -->
+                The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different parts of the country, different types of people are doing different things that changed the pandemic in different scales, significantly or not, our behaviors are interfering with this world.
+                  <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>.
+                </p>
+          </div>
           </div>
         </div>
       </section>
@@ -72,52 +75,59 @@
 
       <!-- Figure 1 -->
       <section id = "Fig_1">
-        <div class = 'box2'>
-          <h3 id = "fig1"> Bubble Chart </h3>
-            <p>
-            <!-- <span>&emsp;&emsp;</span> -->
-            <br> <br>Let’s divide the whole country into states, in term of infection status, they appear to be very different. The difference can potentially result from travel behaviors, population, unemployment rate etc. and they all dramatically or slightly interfered the disease spreading processes. Macroscopically, whatever the effects from the factors are, the ultimate reflection we can observe is the confirmed cases in each state and the infection rate. The color of the bubbles below show how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
-            </p>
-          <div id="d3_bubble_chart"></div>
+        <div class = 'container1'>
+          <div class = 'box2'>
+              <h3 id = "fig1"> Bubble Chart </h3>
+                <p>
+                <!-- <span>&emsp;&emsp;</span> -->
+                Let’s divide the whole country into states, in term of infection status, they appear to be very different. The difference can potentially result from travel behaviors, population, unemployment rate etc. and they all dramatically or slightly interfered the disease spreading processes. Macroscopically, whatever the effects from the factors are, the ultimate reflection we can observe is the confirmed cases in each state and the infection rate. The color of the bubbles below show how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
+                </p>
+              <div id="d3_bubble_chart"></div>
+          </div>
         </div>
-
       </section>
 
       <!-- Figure 2 -->
       <section id = "Fig2_map">
-        <div id = 'fig2'></div>
-        <div class = 'box3'>
-        <style>
-          .state :hover{
-            fill: #d1f7ff;
-          } 
-        </style>
-        <h3> Interactive Map with Line Chart </h3>
-          <p>  
-            <!-- <span>&emsp;&emsp;</span> -->
-            Let’s dive deeper. In the previous page, we mentioned that different infection status can result from different factors. Again, different states behave very differently, try click on one of the states on the map and you will see the changings of 4 different factors that interfere with the infection status along with time.
-            Travel population/State population reflects the portion of people traveled in the state, and if we take Travel population/State area into consideration, it will tell you the average travel population density of the state. Another potentially important factor to consider is the unemployment rate in the state, as its value determines people’s time staying home and traveling. The last factor yet to consider is the total trips of the state, and this is obviously important because a higher number tend to produce more COVID case.
+        <div class = 'container1'>
+          <div class = 'box3'>
+            <div id = 'fig2'></div>
+            <style>
+              .state :hover{
+                fill: #d1f7ff;
+              } 
+            </style>
+            <h3> Interactive Map with Line Chart </h3>
+              <p>  
+                <!-- <span>&emsp;&emsp;</span> -->
+                Let’s dive deeper. In the previous page, we mentioned that different infection status can result from different factors. Again, different states behave very differently, try click on one of the states on the map and you will see the changings of 4 different factors that interfere with the infection status along with time.
+                Travel population/State population reflects the portion of people traveled in the state, and if we take Travel population/State area into consideration, it will tell you the average travel population density of the state. Another potentially important factor to consider is the unemployment rate in the state, as its value determines people’s time staying home and traveling. The last factor yet to consider is the total trips of the state, and this is obviously important because a higher number tend to produce more COVID case.
 
-          </p>
-        <div id= "d3_interactive_Map"></div>
+              </p>
+            <div id= "d3_interactive_Map"></div>
+          </div>
+          <!-- <div id = "info"></div>>  干嘛用的？ -->
         </div>
-        <!-- <div id = "info"></div>>  干嘛用的？ -->
       </section>
     
       <!-- igure 3 -->
       <section id = "vegaDemo">
-        <div class = 'box3'> 
-          <h3 id = "fig3">Trip Distribution Display</h3>
-            <p>
-            Yes, people still travel, but for very different distances. Researches have shown that travel distances are highly related to the infection rate. The travel distance can be categorized into 4 types of travel ranges: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). Here you can see the number of each type of travel range in the whole country, along with the number of each types of travel every month. Chances of getting infected highly depend on how many people you meet and how long you are exposed to the public. Although many other factors may also interfere with the result, the relatively positive relationship between travel distance and chance of getting infected is certain. Less travel is always a safer choice.
-            <p>
-          <div id="view"></div>
-        </div> 
+        <div class = 'container1'>
+          <div class = 'box3'> 
+            <h3 id = "fig3">Trip Distribution Display</h3>
+              <p>
+              Yes, people still travel, but for very different distances. Researches have shown that travel distances are highly related to the infection rate. The travel distance can be categorized into 4 types of travel ranges: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). Here you can see the number of each type of travel range in the whole country, along with the number of each types of travel every month. Chances of getting infected highly depend on how many people you meet and how long you are exposed to the public. Although many other factors may also interfere with the result, the relatively positive relationship between travel distance and chance of getting infected is certain. Less travel is always a safer choice.
+              <p>
+            <div id="view"></div>
+          </div> 
+          </div>
         </div>
       </section>
 
       <!-- igure 4 -->
       <section id = "vs3">
+
+      <div class = 'container1'>
         <div class = 'box3'>
           <h3 id = "fig4">Interactive Map with Barchart</h3>
             <p>
@@ -244,9 +254,11 @@
           update('Adult_trips.csv')
         </script>>
         </div>
+      </div>
       </section>
 
-      <div class = 'box1'>
+      <div class = 'container1'>
+      <div class = 'box4'>
         <div id = 'about'></div>
         <div class = 'content'>
           <h3>About Us </h3>
@@ -264,20 +276,14 @@
             </p>
         </div>
       </div>
-    </section>
+      </div>
 
       <!-- igure footer -->
       <div class="footer">
               <ul>
-                <li>
-                  <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
-                </li>
-                <li>
-                  <a href="http://www.washington.edu">University of Washington</a>
-                </li>
-                <li>
-                  <p>👋</p>
-                </li>
+                <li><a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a></li>
+                <li><a href="http://www.washington.edu">University of Washington</a></li>
+                <li><p>👋</p></li>
               </ul>
       </div>
 
