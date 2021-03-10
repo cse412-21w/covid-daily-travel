@@ -63,10 +63,10 @@ function drawBarVegaLite() {
                        .title({text:'Distribution of the Avg.Trips in United States in 2020',color: '#63d0ff'})
                        .width(1000)
     
-    const trip_Point =vl.markPoint({filled: true})
+    const trip_Point =vl.markCircle({filled: true, size: 6})
                    .data(travel_data)
                    .encode(
-                     vl.x().month('Date').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', domainColor: '#63d0ff'}),
+                     vl.x().fieldT('Date').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', domainColor: '#63d0ff'}),
                      vl.y().average('value').title('The Number of Trips').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff', domainColor: '#63d0ff'}),
                      vl.color().value('black')
                               .if(brush, vl.color().fieldN('dist')),
@@ -80,10 +80,11 @@ function drawBarVegaLite() {
     const trip_Line =vl.markLine()
                    .data(travel_data)
                    .encode(
-                     vl.x().month('Date').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff', domainColor: '#63d0ff'}),
+                     vl.x().fieldT('Date').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff', domainColor: '#63d0ff'}),
                      vl.y().average('value').title('The Number of Trips').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', domainColor: '#63d0ff'}),
                      vl.color().fieldN('dist').legend({fillColor:'black', titleColor: '#63d0ff', labelColor: '#63d0ff'}),
-                     vl.opacity().if(click, vl.value(1)).value(0.2))
+                     vl.opacity().if(click, vl.value(0.5)).value(0.2))
+                    .height(300)
     
     return vl.vconcat( vl.layer(trip_Line, trip_Point), trip_2020)
                 .background({color: 'black'})
