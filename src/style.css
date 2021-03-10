@@ -411,3 +411,12 @@ nav ul li a:hover {
     transform: scale(1, 1) rotate(-90deg)
   }
 }
+
+#Fig2_map .container1 .box3 #map-wrapper {display: flex; justify-content: center;}
+#Fig2_map .container1 .box3 #line {display: flex; justify-content: center;}
+#Fig2_map .container1 .box3 #Category-selector {display: flex; justify-content: center;}
+#Fig2_map .container1 .box3 #Category-selector .category{width:140px;display:inline-block;text-align:center;padding:12px 0;line-height:12px;border-top:5px solid;border-bottom:3px solid;cursor:pointer;opacity:0.65;-webkit-transition:opacity .25s;-moz-transition:opacity .25s;-ms-transition:opacity .25s;-o-transition:opacity .25s;transition:opacity 1s;
+                                                        color:rgb(110,255,224);}
+#Fig2_map .container1 .box3 #Category-selector .category:hover{opacity:0.8; color: rgb(255,103,242);}
+#Fig2_map .container1 .box3 #Category-selector .category.active{opacity:1}
+#Fig2_map .container1 .box3 #Category-selector .category sub{vertical-align:sub;font-size:.75em;display:inline-block;margin-bottom:-1em}
