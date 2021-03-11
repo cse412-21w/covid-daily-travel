@@ -15,7 +15,7 @@ body {
   font-size: 0.95em;
 }
 
-a, a:visited { text-decoration: none; color: rgb(255, 103, 242); }
+a, a:visited { text-decoration: none; color: #d1f7ff; }
 a:hover { text-decoration: double; filter: drop-shadow(5px 5px 10px rgb(255, 103, 242)) drop-shadow(-5px -5px 5px rgb(255, 103, 242)); }
 
 h1, h2, h3, h4, h5 {
