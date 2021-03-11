@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"FjQP":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/covid-daily-travel/Total_Covid_State_2020.e61e6d9d.csv";
+module.exports = "https://cse412-21w.github.io/covid-daily-travel/Total_Covid_State_2020.b8c3f014.csv";
 },{}],"ly83":[function(require,module,exports) {
 "use strict";
 
@@ -135,7 +135,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // bubbleChart creation function; instantiate new bubble chart given a DOM element to display it in and a dataset to visualise
 function bubbleChart() {
   var width = 1100;
-  var height = 650; // location to centre the bubbles
+  var height = 900; // location to centre the bubbles
 
   var centre = {
     x: width / 2,
@@ -161,7 +161,7 @@ function bubbleChart() {
 
   simulation.stop(); // set up colour scale
 
-  var fillColour = d3.scaleLinear().domain([0, 15000000, 30000000, 174400383]).range(["#0074D9", "#7FDBFF", "#39CCCC", "#3D9970"]); // data manipulation function takes raw data from csv and converts it into an array of node objects
+  var fillColour = d3.scaleLinear().domain([0, 0.06, 0.09, 0.13]).range(["#d1f7ff", "#05d9e8", "#00b7ff", "#005678"]); // data manipulation function takes raw data from csv and converts it into an array of node objects
   // each node will store data and visualisation values to draw a bubble
   // rawData is expected to be an array of data objects, read in d3.csv
   // function returns the new node array, with a node for each element in the rawData input
@@ -173,14 +173,14 @@ function bubbleChart() {
       return +d.Confrimed_Case;
     }); // size bubbles based on area
 
-    var radiusScale = d3.scaleSqrt().domain([0, maxSize]).range([0, 85]); // use map() to convert raw data into node data
+    var radiusScale = d3.scaleSqrt().domain([0, maxSize]).range([10, 80]); // use map() to convert raw data into node data
 
     var myNodes = rawData.map(function (d) {
       return _objectSpread(_objectSpread({}, d), {}, {
         radius: radiusScale(+d.Confrimed_Case),
         size: +d.Confrimed_Case,
-        x: Math.random() * 1000,
-        y: Math.random() * 700
+        x: Math.random() * 1200,
+        y: Math.random() * 500
       });
     });
     return myNodes;
@@ -192,7 +192,7 @@ function bubbleChart() {
     // convert raw data into nodes data
     nodes = createNodes(rawData); // create svg element inside provided selector
 
-    svg = d3.select(selector).append('svg').attr('width', width).attr('height', height); // bind nodes data to circle elements
+    svg = d3.select(selector).append('svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + 0 + ',' + 50 + ')'); // bind nodes data to circle elements
 
     var elements = svg.selectAll('.bubble').data(nodes, function (d) {
       return d.Province_State;
@@ -200,8 +200,8 @@ function bubbleChart() {
     bubbles = elements.append('circle').classed('bubble', true).attr('r', function (d) {
       return d.radius;
     }).attr('fill', function (d) {
-      return fillColour(d.Confrimed_Case);
-    }); // labels
+      return fillColour(d.Infection_rate);
+    }).attr('stroke', "#66d4ff").attr('stroke-width', '3px').attr('stroke-opacity', 0.5); // labels
 
     labels = elements.append('text').attr('dy', '.3em').style('text-anchor', 'middle').style('font-size', function (d) {
       return d.radius / 2.8;
@@ -244,4 +244,4 @@ function display(data) {
 
 d3.csv(_Total_Covid_State_.default).then(display);
 },{"../static/Total_Covid_State_2020.csv":"FjQP"}]},{},["ly83"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/Fig_1.379a1a32.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/Fig_1.d083d157.js.map

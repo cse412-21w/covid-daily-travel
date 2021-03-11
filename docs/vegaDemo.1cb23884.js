@@ -148,7 +148,8 @@ var options = {
     //   loader: vega.loader({
     //     baseURL: "",
     //   }),
-    renderer: "canvas"
+    renderer: "svg",
+    stroke: "transparent"
   }
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
@@ -169,20 +170,98 @@ function drawBarVegaLite() {
   // your visualization goes here
   var click = vl.selectMulti().encodings('color');
   var brush = vl.selectInterval().encodings('x');
-  var scale = {
+  var brusha = {
     domain: ['Walkable Trips', 'Commute Trips', 'Outdoor Trips', 'Traveling Trips'],
-    range: ['#e7ba52', '#a7a7a7', '#aec7e8', '#1f77b4']
+    range: ['#e7ba52', '#a7a7a7', '#aec7e8', '#ff9af3']
   };
   var trip_2020 = vl.markBar({
     opacity: 0.8
   }).select(click).data(_trips_categorize_.default).transform(vl.filter(brush)).encode(vl.y().fieldN('dist').axis({
-    labelAngle: 0
-  }).sort(null).title('trip distance'), vl.x().average('value').title('The Number of Trips'), vl.color().value('grey').if(click, vl.color().fieldN('dist'))).title('Distribution of the Avg.Trips in United States in 2020').width(1200);
-  var trip_Point = vl.markPoint({
-    filled: true
-  }).data(_trips_categorize_.default).encode(vl.x().month('Date'), vl.y().average('value').title('The Number of Trips'), vl.color().value('grey').if(brush, vl.color().fieldN('dist')), vl.opacity().if(click, vl.value(1)).value(0.2)).title('Trips Distance in Each Month').select(brush).transform(vl.filter(click)).width(1200);
-  var trip_Line = vl.markLine().data(_trips_categorize_.default).encode(vl.x().month('Date'), vl.y().average('value').title('The Number of Trips'), vl.color().fieldN('dist'), vl.opacity().if(click, vl.value(1)).value(0.2));
-  return vl.vconcat(vl.layer(trip_Line, trip_Point), trip_2020).autosize({
+    labelAngle: 0,
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    tickColor: '#d1f7ff',
+    domainColor: '#d1f7ff',
+    labelFont: 'Tahoma',
+    labelFontSize: 11,
+    titleFontSize: 12,
+    titleFont: 'Tahoma'
+  }).sort(null).title('trip distance'), vl.x().average('value').title('The Number of Trips').axis({
+    labelAngle: 0,
+    grid: false,
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    tickColor: '#d1f7ff',
+    domainColor: '#d1f7ff',
+    labelFont: 'Tahoma',
+    labelFontSize: 11,
+    titleFontSize: 12,
+    titleFont: 'Tahoma'
+  }), vl.color().if(click, vl.color().fieldN('dist').title('Distance Range')), vl.opacity().if(click, vl.value(1)).value(0.2)).title({
+    text: 'Distribution of the Avg.Trips in United States in 2020',
+    color: '#d1f7ff',
+    fontSize: 15,
+    font: 'Tahoma'
+  }).width(1000);
+  var trip_Point = vl.markCircle({
+    filled: true,
+    size: 6
+  }).data(_trips_categorize_.default).encode(vl.x().fieldT('Date').axis({
+    labelAngle: 0,
+    grid: false,
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    domainColor: '#d1f7ff',
+    labelFont: 'Tahoma',
+    labelFontSize: 11
+  }), vl.y().average('value').title({
+    text: 'The Number of Trips'
+  }).axis({
+    labelAngle: 0,
+    grid: false,
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    tickColor: '#d1f7ff',
+    domainColor: '#d1f7ff',
+    labelFont: 'Tahoma',
+    labelFontSize: 11
+  }), vl.color().value('black').if(brush, vl.color().fieldN('dist')), vl.opacity().if(click, vl.value(1)).value(0.2)).title({
+    text: 'Trips Distance in Each Month',
+    color: '#d1f7ff',
+    fontSize: 15,
+    font: 'Tahoma'
+  }).select(brush).transform(vl.filter(click)).width(1000);
+  var trip_Line = vl.markLine().data(_trips_categorize_.default).encode(vl.x().fieldT('Date').axis({
+    labelAngle: 0,
+    grid: false,
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    tickColor: '#d1f7ff',
+    domainColor: '#d1f7ff',
+    titleFontSize: 12,
+    titleFont: 'Tahoma'
+  }), vl.y().average('value').title({
+    text: 'The Number of Trips'
+  }).axis({
+    labelAngle: 0,
+    grid: false,
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    domainColor: '#d1f7ff',
+    titleFontSize: 12,
+    titleFont: 'Tahoma'
+  }), vl.color().fieldN('dist').legend({
+    fillColor: 'black',
+    titleColor: '#d1f7ff',
+    labelColor: '#d1f7ff',
+    labelFont: 'Tahoma',
+    labelFontSize: 11,
+    titleFont: 'Tahoma',
+    titleFontSize: 12
+  }), vl.opacity().if(click, vl.value(0.5)).value(0.2)).height(300);
+  return vl.vconcat(vl.layer(trip_Line, trip_Point), trip_2020).background({
+    color: 'black'
+  }).autosize({
     type: 'fit-x',
     contains: 'padding'
   }).resolve({
@@ -196,4 +275,4 @@ function drawBarVegaLite() {
   });
 }
 },{"../static/trips_categorize_24@3.csv":"Goo8"}]},{},["CsaW"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/vegaDemo.5a8776ec.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/vegaDemo.1cb23884.js.map
