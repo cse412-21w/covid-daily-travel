@@ -47,6 +47,7 @@ h2 { font-size: 12pt; margin: 50px 0 15px 15px; letter-spacing: 0.05em;
 
 h3 { font-size: 13pt; }
 h4 { font-size: 12pt; }
+h6 {color: rgb(110,255,224); font-family: 'Tahoma'; font-size: 18px; font-weight: lighter; opacity: 0.6;}
 h5 { font-size: 14pt; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
   /* text-shadow: 
   -.04em -.04em  #05d9e8, 
@@ -57,13 +58,14 @@ h5 { font-size: 14pt; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'
 
 p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
 }
- .content {
+
+.content {
     position: relative;
     color: #d1f7ff;
     margin: 22%;
     padding: 15px 20px;
     /* box-sizing: border-box; */
-    background-color: #000000;
+    /* background-color: #000000; */
 }
 /* box effect copied from  */
   .box1 {
@@ -74,6 +76,31 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
     border: 0.5px solid #d1f7ff;
     background-color:  #000000;
     width: 122%;
+}
+
+.box_intro {
+  background-image: url('covid.jpg');
+  /* background-position: center; */
+  opacity: 0.8;
+  background-size: 115%;
+  vertical-align: middle;
+  box-shadow: 0 2px 9px #d1f7ff;
+  margin-left: 22%;
+  height: 787px;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  width: 122%;
+}
+
+.text_background{
+  position: absolute;
+  margin-top: 18%;
+  margin-left: 18%;
+  width: 47%;
+  height: 23%;
+  opacity: 0.6;
+  background-size: 65%;
+  background-color:  #000000;
 }
 
 .box2 {
@@ -104,6 +131,78 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
   border: 0.5px solid #d1f7ff;
   background-color:  #000000;
   width: 122%;
+}
+
+.box5 {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  margin-top: 3%;
+  margin-right: 62%;
+  margin-left: 2%;
+  /* height: 787px; */
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  /* width: 122%; */
+}
+/* .box5:hover{
+  box-shadow: 0 2px 30px #d1f7ff;
+} */
+
+.box_cat {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 16%;
+  /* box-shadow: 0 2px 30px #d1f7ff; */
+  margin-right: 62%;
+  margin-top: 0.6%;
+  /* height: 787px; */
+  /* border: 0.5px solid #d1f7ff; */
+  background-color:  #000000;
+  /* width: 122%; */
+}
+
+.box_black1 {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  /* margin-left: 16%; */
+  /* box-shadow: 0 2px 30px #d1f7ff; */
+  /* margin-right: 62%; */
+  margin-top: 38%;
+  width: 22%;
+  height: 100px;
+  /* border: 0.5px solid #d1f7ff; */
+  background-color:  #000000;
+}
+
+.box_black2 {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 50%;
+  /* box-shadow: 0 2px 30px #d1f7ff; */
+  /* margin-right: 62%; */
+  margin-top: 38%;
+  width: 30%;
+  height: 100px;
+  /* border: 0.5px solid #d1f7ff; */
+  background-color:  #000000;
+}
+
+.box6 {
+  vertical-align: middle;
+  /* box-shadow: 0 2px 30px #d1f7ff; */
+  /* margin-left: 20%; */
+  /* scroll-margin-top: 2%; */
+  /* border: 0.5px solid #d1f7ff; */
+  background-color:  #000000;
+  /* width: 122%; */
 }
 
 .shadow {
@@ -428,7 +527,7 @@ div.tooltip_bar {
     color: #d1f7ff;
   }
   .footer a:hover {
-    filter: drop-shadow(5px 5px 10px #005678) drop-shadow(-5px -5px 5px #005678);
+    filter: drop-shadow(5px 5px 10px #d1f7ff) drop-shadow(-5px -5px 5px #d1f7ff);
   }
 /* footer copied from https://codepen.io/julesforrest/pen/qLpgNB */
 

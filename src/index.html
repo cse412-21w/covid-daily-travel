@@ -58,7 +58,8 @@
         </div>
 
         <div class = 'container1'>
-          <div class = 'box1'>
+          <div class = 'box_intro'>
+            <div class = 'text_background'> <p>  </p> </div>
             <div id = 'intro'></div>
             <div class = 'content'>
               <div class="lines">
@@ -105,11 +106,19 @@
                 Travel population/State population reflects the portion of people traveled in the state, and if we take Travel population/State area into consideration, it will tell you the average travel population density of the state. Another potentially important factor to consider is the unemployment rate in the state, as its value determines people’s time staying home and traveling. The last factor yet to consider is the total trips of the state, and this is obviously important because a higher number tend to produce more COVID case.
 
               </p>
+              <div class = 'container'>
+              <div class = box5>
+                <p>Hint:<br>1. Select a state<br>2. Select a category</p>
+              </div>
+              <div class = "box6">
             <div id="states">
               <div id="map-wrapper"></div>
               <div id="line"></div>
             </div>
-            <div id="Category-selector"></div>           
+            <div class="box_cat"><h6>Category</h6></div>
+            <div id="Category-selector"></div>  
+            </div>         
+          </div>
           </div>
         </div>
       </section>
@@ -146,7 +155,9 @@
           <button class="fig4_button4"; onclick="update('Senior_Adult_trips.csv'); updatemap('Senior_Adult'); updatemap('Senior_Adult'); update_ymax(12000)">Senior Adult</button>
           <div class="fig4_container"></div>
             <div id="Fig4_map"></div>
+            <div class="box_black1"><p></p></div>
             <div id="Fig4_bar"></div>
+            <div class="box_black2"><p></p></div>
           </div>
         </div>
 
@@ -568,7 +579,7 @@
       <div class="footer">
               <ul>
                 <li><a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a></li>
-                <li><a href="http://www.washington.edu">University of Washington</a></li>
+                <li><a href="https://github.com/cse412-21w/covid-daily-travel">github</a></li>
                 <li><p>👋</p></li>
               </ul>
       </div>
