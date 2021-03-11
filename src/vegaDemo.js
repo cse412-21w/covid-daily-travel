@@ -55,24 +55,24 @@ function drawBarVegaLite() {
                        .data(travel_data)
                        .transform(vl.filter(brush))
                        .encode(
-                         vl.y().fieldN('dist').axis({ labelAngle: 0, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff',domainColor: '#63d0ff'}).sort(null).title('trip distance'),
-                         vl.x().average('value').title('The Number of Trips').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff',domainColor: '#63d0ff'}),
+                         vl.y().fieldN('dist').axis({ labelAngle: 0, titleColor: '#d1f7ff', labelColor: '#d1f7ff', tickColor: '#d1f7ff',domainColor: '#d1f7ff', labelFont: 'Tahoma', labelFontSize: 11, titleFontSize: 12, titleFont:'Tahoma' }).sort(null).title('trip distance'),
+                         vl.x().average('value').title('The Number of Trips').axis({ labelAngle: 0, grid: false, titleColor: '#d1f7ff', labelColor: '#d1f7ff', tickColor: '#d1f7ff',domainColor: '#d1f7ff', labelFont: 'Tahoma', labelFontSize: 11, titleFontSize: 12, titleFont:'Tahoma'}),
                          vl.color().if(click, vl.color().fieldN('dist').title('Distance Range')),
                          vl.opacity().if(click, vl.value(1)).value(0.2)
                        )
-                       .title({text:'Distribution of the Avg.Trips in United States in 2020',color: '#63d0ff'})
+                       .title({text:'Distribution of the Avg.Trips in United States in 2020',color: '#d1f7ff',fontSize: 15, font: 'Tahoma'})
                        .width(1000)
     
     const trip_Point =vl.markCircle({filled: true, size: 6})
                    .data(travel_data)
                    .encode(
-                     vl.x().fieldT('Date').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', domainColor: '#63d0ff'}),
-                     vl.y().average('value').title('The Number of Trips').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff', domainColor: '#63d0ff'}),
+                     vl.x().fieldT('Date').axis({ labelAngle: 0, grid: false, titleColor: '#d1f7ff', labelColor: '#d1f7ff', domainColor: '#d1f7ff', labelFont: 'Tahoma', labelFontSize: 11}),
+                     vl.y().average('value').title({text: 'The Number of Trips'}).axis({ labelAngle: 0, grid: false, titleColor: '#d1f7ff', labelColor: '#d1f7ff', tickColor: '#d1f7ff', domainColor: '#d1f7ff',labelFont: 'Tahoma', labelFontSize: 11}),
                      vl.color().value('black')
                               .if(brush, vl.color().fieldN('dist')),
                      vl.opacity().if(click, vl.value(1)).value(0.2)
                    )
-                   .title({text: 'Trips Distance in Each Month', color: '#63d0ff'})
+                   .title({text: 'Trips Distance in Each Month', color: '#d1f7ff',fontSize: 15, font: 'Tahoma'})
                    .select(brush)
                    .transform(vl.filter(click))
                    .width(1000)
@@ -80,9 +80,9 @@ function drawBarVegaLite() {
     const trip_Line =vl.markLine()
                    .data(travel_data)
                    .encode(
-                     vl.x().fieldT('Date').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', tickColor: '#63d0ff', domainColor: '#63d0ff'}),
-                     vl.y().average('value').title('The Number of Trips').axis({ labelAngle: 0, grid: false, titleColor: '#63d0ff', labelColor: '#63d0ff', domainColor: '#63d0ff'}),
-                     vl.color().fieldN('dist').legend({fillColor:'black', titleColor: '#63d0ff', labelColor: '#63d0ff'}),
+                     vl.x().fieldT('Date').axis({ labelAngle: 0, grid: false, titleColor: '#d1f7ff', labelColor: '#d1f7ff', tickColor: '#d1f7ff', domainColor: '#d1f7ff',titleFontSize: 12, titleFont:'Tahoma' }),
+                     vl.y().average('value').title({text: 'The Number of Trips'}).axis({ labelAngle: 0, grid: false, titleColor: '#d1f7ff', labelColor: '#d1f7ff', domainColor: '#d1f7ff', titleFontSize: 12, titleFont:'Tahoma'}),
+                     vl.color().fieldN('dist').legend({fillColor:'black', titleColor: '#d1f7ff', labelColor: '#d1f7ff',labelFont: 'Tahoma', labelFontSize: 11, titleFont: 'Tahoma', titleFontSize: 12}),
                      vl.opacity().if(click, vl.value(0.5)).value(0.2))
                     .height(300)
     

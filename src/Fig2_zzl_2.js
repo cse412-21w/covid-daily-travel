@@ -81,6 +81,8 @@ function drawLine(name){
   svg.append("g")
   .attr("transform", "translate(0," + height_line + ")")
   .style("color", "rgb(110,255,224)")
+  .style('font-size', 13)
+  .style('font-family', 'Tahoma')
   .call(xAxis)
   .selectAll("text") 
   .style("text-anchor", "middle")
@@ -88,7 +90,9 @@ function drawLine(name){
 
   // Add the Y Axis
   svg.append("g").call(d3.axisLeft(y))
-  .style("color", "rgb(110,255,224)");
+  .style("color", "rgb(110,255,224)")
+  .style('font-size', 13)
+  .style('font-family', 'Tahoma')
 
   //text label for the y axis
   svg.append("text")
@@ -150,13 +154,18 @@ function drawLine_area_rate(name){
   svg.append("g")
   .attr("transform", "translate(0," + height_line + ")")
   .style("color", "rgb(110,255,224)")
+  .style('font-size', 13)
+  .style('font-family', 'Tahoma')
   .call(xAxis)
   .selectAll("text") 
   .style("text-anchor", "middle")
   .attr("transform", "translate(35,0)");
 
   // Add the Y Axis
-  svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)");
+  svg.append("g").call(d3.axisLeft(y))
+    .style("color", "rgb(110,255,224)")
+    .style('font-size', 13)
+    .style('font-family', 'Tahoma');
 
   //text label for the y axis
   svg.append("text")
@@ -220,10 +229,15 @@ function drawLine_unemployment_rate(name){
   svg.append("g")
       .attr("transform", "translate(0," + height_line + ")")
       .style("color", "rgb(110,255,224)")
+      .style('font-size', 13)
+      .style('font-family', 'Tahoma')
       .call(xAxis);
 
   // Add the Y Axis
-  svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)");
+  svg.append("g").call(d3.axisLeft(y))
+    .style("color", "rgb(110,255,224)")
+    .style('font-size', 13)
+    .style('font-family', 'Tahoma');
 
   //text label for the y axis
   svg.append("text")
@@ -287,13 +301,18 @@ function drawLine_NumberOfTrips(name){
   svg.append("g")
   .attr("transform", "translate(0," + height_line + ")")
   .style("color", "rgb(110,255,224)")
+  .style('font-size', 13)
+  .style('font-family', 'Tahoma')
   .call(xAxis)
   .selectAll("text") 
   .style("text-anchor", "middle")
   .attr("transform", "translate(35,0)");
 
   // Add the Y Axis
-  svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)");
+  svg.append("g").call(d3.axisLeft(y))
+    .style("color", "rgb(110,255,224)")
+    .style('font-size', 13)
+    .style('font-family', 'Tahoma');
 
   //text label for the y axis
   svg.append("text")
