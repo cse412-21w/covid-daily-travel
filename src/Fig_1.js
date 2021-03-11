@@ -36,7 +36,7 @@ function bubbleChart() {
 
   // set up colour scale
   const fillColour = d3.scaleLinear()
-     .domain([0, 15000000, 30000000, 174400383])
+     .domain([0, 0.06, 0.09, 0.13])
      .range(["#d1f7ff", "#05d9e8", "#00b7ff", "#005678"]);
 
   // data manipulation function takes raw data from csv and converts it into an array of node objects
@@ -89,7 +89,7 @@ function bubbleChart() {
       .append('circle')
       .classed('bubble', true)
       .attr('r', d => d.radius)
-      .attr('fill', d => fillColour(d.Confrimed_Case))
+      .attr('fill', d => fillColour(d.Infection_rate))
       .attr('stroke',"#66d4ff")
       .attr('stroke-width','3px')
       .attr('stroke-opacity',0.5)
