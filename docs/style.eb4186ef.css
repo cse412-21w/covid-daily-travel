@@ -15,7 +15,7 @@ body {
   font-size: 0.95em;
 }
 
-a, a:visited { text-decoration: none; color: rgb(255, 103, 242); }
+a, a:visited { text-decoration: none; color: #d1f7ff; }
 a:hover { text-decoration: double; filter: drop-shadow(5px 5px 10px rgb(255, 103, 242)) drop-shadow(-5px -5px 5px rgb(255, 103, 242)); }
 
 h1, h2, h3, h4, h5 {
@@ -809,4 +809,4 @@ nav ul li a:hover {
 #Fig2_map .container1 .box3 #Category-selector .category.active{opacity:1}
 #Fig2_map .container1 .box3 #Category-selector .category sub{vertical-align:sub;font-size:.75em;display:inline-block;margin-bottom:-1em}
 
-/*# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/style.3b307466.css.map */
+/*# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/style.eb4186ef.css.map */
