@@ -142,10 +142,10 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
     width: 123.5%;
 }
 .box1 {
-  margin-top: 35%;
+  /* margin-top: 5%; */
   vertical-align: middle;
   margin-left: 20.5%;
-  height: 787px;
+  height: 987px;
   border: 0.5px solid #000000;
   background-color:  #000000;
   width: 123.5%;
@@ -161,7 +161,7 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
 }
 
 .box_intro {
-  background-image: url('/covid.0cef1bda.jpg');
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/covid.f9aee38b.jpg');
   /* background-position: center; */
   opacity: 0.8;
   background-size: 115%;
@@ -198,17 +198,26 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
 
 
 .box3 {
-  margin-top: 30%;
+  margin-top: 20%;
   vertical-align: middle;
   margin-left: 20.5%;
-  height: 1087px;
-  border: 0.5px solid #000000;
+  height: 1487px;
+  /* border: 0.5px solid #a0a9aa; */
   background-color:  #000000;
   width: 123.5%;
 }
+/* 
+.box_fig4 {
+  margin-top: 30%;
+  vertical-align: middle;
+  margin-left: 20.5%;
+  height: 1487px;
+  background-color:  #000000;
+  width: 123.5%;
+} */
 
 .box4 {
-  margin-top: 20%;
+  margin-top: 35%;
   vertical-align: middle;
   margin-left: 20.5%;
   height: 787px;
@@ -225,6 +234,40 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
   border: 0.5px solid #000000;
   background-color:  #000000;
   width: 123.5%;
+}
+
+.box_aboutp {
+  margin-top: 0%;
+  vertical-align: middle;
+  margin-left: 20.5%;
+  height: 300px;
+  border: 0.5px solid #000000;
+  background-color:  #000000;
+  width: 123.5%;
+}
+
+
+.box_aboutp_left {
+  margin-top: 10%;
+  height: 300px;
+  border: 0.5px solid #000000;
+  background-color:  #000000;
+  width: 50%;
+  float: left;
+  position: absolute;
+  margin-left: 8%;
+}
+
+.box_aboutp_right {
+  margin-top: 10%;
+  height: 300px;
+  border: 0.5px solid #000000;
+  background-color:  #000000;
+  width: 50%;
+  float: right;
+  margin-right: -4%;
+  margin-top: 12%;
+  position: relative;
 }
 
 .box5 {
@@ -258,15 +301,31 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
 
 .box_black1 {
   position: absolute;
+  /* float: left; */
+  vertical-align: middle;
+  /* text-align: left; */
+  /* margin-left: 16%; */
+  /* box-shadow: 0 2px 30px #d1f7ff; */
+  margin-right: 62%;
+  margin-top: 38%;
+  width: 22%;
+  height: 100px;
+  /* border: 0.5px solid #d1f7ff; */
+  background-color:  #000000;
+}
+
+.box_black3 {
+  position: absolute;
   float: left;
   vertical-align: middle;
   text-align: left;
   /* margin-left: 16%; */
   /* box-shadow: 0 2px 30px #d1f7ff; */
   /* margin-right: 62%; */
-  margin-top: 38%;
-  width: 22%;
-  height: 100px;
+  width: 80;
+  margin-top: 55%;
+  /* width: 72%; */
+  height: 200px;
   /* border: 0.5px solid #d1f7ff; */
   background-color:  #000000;
 }
@@ -940,7 +999,7 @@ nav ul li a:hover {
 }
 
 .box_ling_pic {
-  background-image: url('/ling.1704b303.jpg');
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/ling.e830a54a.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -959,7 +1018,7 @@ nav ul li a:hover {
 }
 
 .box_lu_pic {
-  background-image: url('/lu.99a40141.jpg');
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/lu.8eef7a95.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -990,7 +1049,7 @@ nav ul li a:hover {
 }
 
 .box_ray_pic {
-  background-image: url('/ray.d6b5db6a.jpg');
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/ray.9daefeaf.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -1020,7 +1079,7 @@ nav ul li a:hover {
 }
 
 .box_jun_pic {
-  background-image: url('/jun.b2e33bce.jpg');
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/jun.879becb3.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -1070,4 +1129,4 @@ nav ul li a:hover {
   .09em .09em  #005678;
 }
 
-/*# sourceMappingURL=/style.e308ff8e.css.map */
+/*# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/style.30d5f679.css.map */
