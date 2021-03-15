@@ -161,7 +161,7 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
 }
 
 .box_intro {
-  background-image: url('https://cse412-21w.github.io/covid-daily-travel/covid.f9aee38b.jpg');
+  background-image: url('/covid.0cef1bda.jpg');
   /* background-position: center; */
   opacity: 0.8;
   background-size: 115%;
@@ -306,7 +306,7 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
   /* text-align: left; */
   /* margin-left: 16%; */
   /* box-shadow: 0 2px 30px #d1f7ff; */
-  margin-right: 62%;
+  margin-left: 0.5%;
   margin-top: 38%;
   width: 22%;
   height: 100px;
@@ -324,6 +324,7 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
   /* margin-right: 62%; */
   width: 80;
   margin-top: 55%;
+  margin-left: 1.5%;
   /* width: 72%; */
   height: 200px;
   /* border: 0.5px solid #d1f7ff; */
@@ -411,6 +412,7 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
   margin: auto;
   position: static;
   float: left;
+  margin-left: 1%;
 }
 
 #Fig4_bar  {
@@ -999,7 +1001,7 @@ nav ul li a:hover {
 }
 
 .box_ling_pic {
-  background-image: url('https://cse412-21w.github.io/covid-daily-travel/ling.e830a54a.jpg');
+  background-image: url('/ling.1704b303.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -1018,7 +1020,7 @@ nav ul li a:hover {
 }
 
 .box_lu_pic {
-  background-image: url('https://cse412-21w.github.io/covid-daily-travel/lu.8eef7a95.jpg');
+  background-image: url('/lu.99a40141.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -1049,7 +1051,7 @@ nav ul li a:hover {
 }
 
 .box_ray_pic {
-  background-image: url('https://cse412-21w.github.io/covid-daily-travel/ray.9daefeaf.jpg');
+  background-image: url('/ray.d6b5db6a.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -1079,7 +1081,7 @@ nav ul li a:hover {
 }
 
 .box_jun_pic {
-  background-image: url('https://cse412-21w.github.io/covid-daily-travel/jun.879becb3.jpg');
+  background-image: url('/jun.b2e33bce.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -1129,4 +1131,4 @@ nav ul li a:hover {
   .09em .09em  #005678;
 }
 
-/*# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/style.30d5f679.css.map */
+/*# sourceMappingURL=/style.e308ff8e.css.map */
