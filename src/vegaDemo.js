@@ -61,7 +61,7 @@ function drawBarVegaLite() {
                          vl.opacity().if(click, vl.value(1)).value(0.2)
                        )
                        .title({text:'Distribution of the Avg.Trips in United States in 2020',color: '#d1f7ff',fontSize: 15, font: 'Tahoma'})
-                       .width(1000)
+                       .width(950)
     
     const trip_Point =vl.markCircle({filled: true, size: 6})
                    .data(travel_data)
@@ -75,7 +75,7 @@ function drawBarVegaLite() {
                    .title({text: 'Trips Distance in Each Month', color: '#d1f7ff',fontSize: 15, font: 'Tahoma'})
                    .select(brush)
                    .transform(vl.filter(click))
-                   .width(1000)
+                   .width(950)
     
     const trip_Line =vl.markLine()
                    .data(travel_data)

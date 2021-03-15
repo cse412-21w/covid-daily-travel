@@ -10,9 +10,11 @@ body {
   background-color: #000000; 
   margin: 0 0 0 0;
   padding: 0;
-  max-width: 1000px;
+  max-width: 70%;
   font-family: "Avenir", "Avenir Next", Helvetica Neue, Arial, 'Monoton', cursive, 'Orbitron', sans-serif;
   font-size: 0.95em;
+  width: auto!important; 
+  overflow-x: hidden!important
 }
 
 a, a:visited { text-decoration: none; color: #d1f7ff; }
@@ -28,7 +30,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 { font-size: 24pt; margin:  20px 10px 10px 15px; line-height: 28px;
-     letter-spacing: 0.06em; line-height: 0;
+     letter-spacing: 0.07em; line-height: 0;
      text-shadow: 
      -.04em -.04em  #05d9e8, 
      .04em -.04em  #05d9e8, 
@@ -56,7 +58,7 @@ h5 { font-size: 14pt; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold'
   .09em .09em  #005678;} */
 }
 
-p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
+p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; letter-spacing: 0.02em;
 }
 
 .content {
@@ -64,18 +66,33 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
     color: #d1f7ff;
     margin: 22%;
     padding: 15px 20px;
-    /* box-sizing: border-box; */
-    /* background-color: #000000; */
 }
 /* box effect copied from  */
-  .box1 {
+.box_welcome {
     vertical-align: middle;
-    box-shadow: 0 2px 9px #d1f7ff;
-    margin-left: 22%;
+    margin-left: 20.5%;
     height: 787px;
-    border: 0.5px solid #d1f7ff;
+    border: 0.5px solid #000000;
     background-color:  #000000;
-    width: 122%;
+    width: 123.5%;
+}
+.box1 {
+  margin-top: 35%;
+  vertical-align: middle;
+  margin-left: 20.5%;
+  height: 787px;
+  border: 0.5px solid #000000;
+  background-color:  #000000;
+  width: 123.5%;
+}
+
+.box_content {
+  padding: 5%;
+  text-align: justify;
+  vertical-align: middle;
+  /* border: 0.5px solid #05d9e8; */
+  background-color:  #000000;
+  width: 80;
 }
 
 .box_intro {
@@ -84,12 +101,12 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
   opacity: 0.8;
   background-size: 115%;
   vertical-align: middle;
-  box-shadow: 0 2px 9px #d1f7ff;
-  margin-left: 22%;
+  /* box-shadow: 0 2px 9px #d1f7ff; */
+  margin-left: 20.5%;
   height: 787px;
-  border: 0.5px solid #d1f7ff;
+  border: 0.5px solid #000000;
   background-color:  #000000;
-  width: 122%;
+  width: 123.5%;
 }
 
 .text_background{
@@ -103,34 +120,46 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
   background-color:  #000000;
 }
 
+
 .box2 {
+  margin-top: 20%;
   vertical-align: middle;
-  box-shadow: 0 2px 9px #d1f7ff;
-  margin-left: 22%;
-  height: 890px;
-  border: 0.5px solid #d1f7ff;
+  margin-left: 20.5%;
+  height: 790px;
+  border: 0.5px solid #000000;
   background-color:  #000000;
-  width: 122%;
+  width: 123.5%;
 }
 
+
 .box3 {
+  margin-top: 30%;
   vertical-align: middle;
-  box-shadow: 0 2px 9px #d1f7ff;
-  margin-left: 22%;
-  height: 887px;
-  border: 0.5px solid #d1f7ff;
+  margin-left: 20.5%;
+  height: 1087px;
+  border: 0.5px solid #000000;
   background-color:  #000000;
-  width: 122%;
+  width: 123.5%;
 }
 
 .box4 {
+  margin-top: 20%;
   vertical-align: middle;
-  box-shadow: 0 2px 30px #d1f7ff;
-  margin-left: 22%;
+  margin-left: 20.5%;
   height: 787px;
-  border: 0.5px solid #d1f7ff;
+  border: 0.5px solid #000000;
   background-color:  #000000;
-  width: 122%;
+  width: 123.5%;
+}
+
+.box_conclu {
+  margin-top: 0%;
+  vertical-align: middle;
+  margin-left: 20.5%;
+  height: 300px;
+  border: 0.5px solid #000000;
+  background-color:  #000000;
+  width: 123.5%;
 }
 
 .box5 {
@@ -146,19 +175,16 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
   background-color:  #000000;
   /* width: 122%; */
 }
-/* .box5:hover{
-  box-shadow: 0 2px 30px #d1f7ff;
-} */
 
 .box_cat {
   position: absolute;
   float: left;
   vertical-align: middle;
   text-align: left;
-  margin-left: 16%;
+  margin-left: 15%;
   /* box-shadow: 0 2px 30px #d1f7ff; */
   margin-right: 62%;
-  margin-top: 0.6%;
+  margin-top: 2.5%;
   /* height: 787px; */
   /* border: 0.5px solid #d1f7ff; */
   background-color:  #000000;
@@ -203,6 +229,16 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px;
   /* border: 0.5px solid #d1f7ff; */
   background-color:  #000000;
   /* width: 122%; */
+}
+
+.box_footer {
+  vertical-align: middle;
+  box-shadow: 0 2px 30px #d1f7ff;
+  margin-left: 20.5%;
+  height: px;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  width: 123.5%;
 }
 
 .shadow {
@@ -515,11 +551,8 @@ div.tooltip_bar {
     margin-top: 5px;
   }
  .footer {
-  /* border-top: 1px solid #ccc; */
-  /* margin-top: 30px; */
-  /* padding-top: 15px; */
   margin: 15px 0 0 15px;
-  width: 1700px;
+  width: 1550px;
   text-align: center;
   font-size: 14px;
   }
@@ -636,10 +669,10 @@ li:hover ~ li p {
 
 /* sidebar copied from https://codepen.io/sreisner/pen/KazJmO */
 .sidebar {
-  box-shadow: 0px 2px 10px #d1f7ff;
+  box-shadow: 0px 2px 15px #d1f7ff;
   position: fixed;
-  width: 15%;
-  height: 100vh;
+  width: 14%;
+  height: 100%;
   background: #000000;
   font-size: 0.6em;
 }
@@ -690,17 +723,6 @@ nav ul li a:not(.active):hover {
       color: rgba(#FFF, 0.75);
     } 
 
-/* nav ul li a:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 0.3em;
-      background: black;
-      left: 0;
-      bottom: auto;
-      background-image: linear-gradient(to right, #5e42a6, #b74e91)
-    } */
-
 nav ul li a:hover {
   filter: drop-shadow(5px 5px 20px #d1f7ff) drop-shadow(-5px -5px 5px #05d9e8); 
 }
@@ -727,11 +749,6 @@ nav ul li a:hover {
   transform: scale(0.9);
   transition: .1s;
 }
-
-/* .animLine:hover {
-  transform: scale(1);
-  box-shadow: 0 2px 4px #000, 0 8px 32px rgba(0, 0, 0, 0.5);
-} */
 
 .animLine:hover:before,
 .animLine:hover:after {
@@ -803,10 +820,158 @@ nav ul li a:hover {
 #Fig2_map .container1 .box3 #map-wrapper {display: flex; justify-content: center; }
 #Fig2_map .container1 .box3 #line {display: flex; justify-content: center;}
 #Fig2_map .container1 .box3 #Category-selector {display: flex; justify-content: center;}
-#Fig2_map .container1 .box3 #Category-selector .category{width:140px;display:inline-block;text-align:center;padding:12px 0;line-height:12px;border-top:5px solid;border-bottom:3px solid;cursor:pointer;opacity:0.65;-webkit-transition:opacity .25s;-moz-transition:opacity .25s;-ms-transition:opacity .25s;-o-transition:opacity .25s;transition:opacity 1s;
+#Fig2_map .container1 .box3 #Category-selector .category{margin-top: 2%; width:13%;display:inline-block;text-align:center;padding:12px 0;line-height:12px;border-top:5px solid;border-bottom:3px solid;cursor:pointer;opacity:0.65;-webkit-transition:opacity .25s;-moz-transition:opacity .25s;-ms-transition:opacity .25s;-o-transition:opacity .25s;transition:opacity 1s;
                                                         color:rgb(110,255,224);}
 #Fig2_map .container1 .box3 #Category-selector .category:hover{opacity:0.8; color: rgb(255,103,242);}
 #Fig2_map .container1 .box3 #Category-selector .category.active{opacity:1}
 #Fig2_map .container1 .box3 #Category-selector .category sub{vertical-align:sub;font-size:.75em;display:inline-block;margin-bottom:-1em}
 
-/*# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/style.eb4186ef.css.map */
+/* about us */
+.box_ling {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  margin-top: 25%;
+  /* margin-right: 65%; */
+  margin-left: 15%;
+  width: 10%;
+  height: 30%;
+  /* height: 787px; */
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  /* width: 122%; */
+}
+
+.box_ling_pic {
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/ling.e830a54a.jpg');
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  margin-top: 10%;
+  margin-left: 15%;
+  width: 10%;
+  height: 20%;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  border-radius: 100%;
+  background-size: 100%;
+}
+
+.box_ling:hover{
+  box-shadow: 0 2px 30px #d1f7ff;
+}
+
+.box_lu_pic {
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/lu.8eef7a95.jpg');
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  margin-top: 10%;
+  margin-left: 29%;
+  width: 10%;
+  height: 20%;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  border-radius: 100%;
+  background-size: 100%;
+}
+
+.box_lu {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  width: 10%;
+  height: 30%;
+  margin-top: 25%;
+  margin-left: 29%;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+}
+.box_lu:hover{
+  box-shadow: 0 2px 30px #d1f7ff;
+}
+
+.box_ray_pic {
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/ray.9daefeaf.jpg');
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  margin-top: 10%;
+  margin-left: 43%;
+  width: 10%;
+  height: 20%;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  border-radius: 100%;
+  background-size: 100%;
+}
+.box_ray {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  width: 10%;
+  height: 30%;
+  margin-top: 25%;
+  margin-left: 43%;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+}
+.box_ray:hover{
+  box-shadow: 0 2px 30px #d1f7ff;
+}
+
+.box_jun_pic {
+  background-image: url('https://cse412-21w.github.io/covid-daily-travel/jun.879becb3.jpg');
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  margin-top: 10%;
+  margin-left: 57%;
+  width: 10%;
+  height: 20%;
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  border-radius: 100%;
+  background-size: 100%;
+}
+.box_jun {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: left;
+  width: 10%;
+  height: 30%;
+  margin-top: 25%;
+  margin-left: 57%;
+  width: 40;
+  /* height: 787px; */
+  border: 0.5px solid #d1f7ff;
+  background-color:  #000000;
+  /* width: 122%; */
+}
+.box_jun:hover{
+  box-shadow: 0 2px 30px #d1f7ff;
+}
+
+.box_title {
+  position: absolute;
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  width: 15%;
+  height: 10%;
+  margin-top: 3%;
+  margin-left: 33%;
+  width: 40;
+  background-color:  #000000;
+  text-shadow: 
+  -.04em -.04em  #05d9e8, 
+  .04em -.04em  #05d9e8, 
+  -.04em .04em  #05d9e8, 
+  .09em .09em  #005678;
+}
+
+/*# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/style.1ad7294f.css.map */

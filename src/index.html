@@ -45,7 +45,7 @@
 
       <section>
         <div class = 'container1'>
-          <div class = 'box1'>
+          <div class = 'box_welcome'>
             <div id="welcome"></div>
             <div class="content">
               <div class="container">
@@ -59,7 +59,7 @@
 
         <div class = 'container1'>
           <div class = 'box_intro'>
-            <div class = 'text_background'> <p>  </p> </div>
+            <div class = 'text_background'><p></p></div>
             <div id = 'intro'></div>
             <div class = 'content'>
               <div class="lines">
@@ -67,11 +67,8 @@
                 <div class="line"></div>
                 <div class="line"></div>
               </div>
-              <!-- <h3>INTRO </h3> -->
                 <p>
-                <!-- <span>&emsp;&emsp;</span> -->
                 The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different parts of the country, different types of people are doing different things that changed the pandemic in different scales, significantly or not, our behaviors are interfering with this world.
-                  <!-- <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>. -->
                 </p>
           </div>
           </div>
@@ -84,11 +81,16 @@
         <div class = 'container1'>
           <div class = 'box2'>
             <div id = "fig1"></div>
-              <!-- <h3 id = "fig1"> Bubble Chart </h3> -->
+            <div class="box_content">
                 <p>
-                <!-- <span>&emsp;&emsp;</span> -->
-                Let’s divide the whole country into states, in term of infection status, they appear to be very different. The difference can potentially result from travel behaviors, population, unemployment rate etc. and they all dramatically or slightly interfered the disease spreading processes. Macroscopically, whatever the effects from the factors are, the ultimate reflection we can observe is the confirmed cases in each state and the infection rate. The color of the bubbles below show how high the infection rate is, the higher the infection rate, the more saturated the color of the bubble. The size of the bubble shows the absolute number of the confirmed cases, the more the confirmed cases, the larger the bubble is.
+                  Since mid-February 2020, states were, more or less, affected by coronavirus. These distinctions might potentially result from travel behaviors, population, unemployment rate, age groups etc., and they all somewhat interfered the disease spreading processes. Macroscopically, those states with high number of confirmed cases actually have relatively low infection rate (&#8776 7.5%) while most of the states with high infection (apprx 11%) have relatively smaller number of confirmed cases. More analyses related to aforementioned factors would be introduced later.
+                  <br> <br>
+                  The <span style="font-size: 20px; color: aqua ;font-weight: 400">color</span> represents the 
+                  <span style="font-size: 20px; color: aqua ;font-weight: 400">severity of infection rate </span> of each state and the 
+                  <span style="font-size: 20px; color: aqua ;font-weight: 400">size</span> of bubble represents the state’s 
+                  <span style="font-size: 20px; color: aqua ;font-weight: 400">total number of confirmed cases</span>. In other words, states with darker color have higher infection rate and states with larger size have more confirmed cases.
                 </p>
+            </div>
               <div id="d3_bubble_chart"></div>
           </div>
         </div>
@@ -99,13 +101,30 @@
         <div class = 'container1'>
           <div class = 'box3'>
             <div id = 'fig2'></div>
-            <!-- <h3> Interactive Map with Line Chart </h3> -->
-              <p>  
-                <!-- <span>&emsp;&emsp;</span> -->
-                Let’s dive deeper. In the previous page, we mentioned that different infection status can result from different factors. Again, different states behave very differently, try click on one of the states on the map and you will see the changings of 4 different factors that interfere with the infection status along with time.
-                Travel population/State population reflects the portion of people traveled in the state, and if we take Travel population/State area into consideration, it will tell you the average travel population density of the state. Another potentially important factor to consider is the unemployment rate in the state, as its value determines people’s time staying home and traveling. The last factor yet to consider is the total trips of the state, and this is obviously important because a higher number tend to produce more COVID case.
-
+            <div class="box_content">
+              <p> 
+                In order to better understand the impacts of COVID-19 on different states, 4 metrics were applied: 
+                <br><br>
+                <span>&emsp;</span> - Stay-Home Rate: Population of Staying at home / Total Population<br>
+                <span>&emsp;</span> - Stay-Home Density: Population of Staying at home / State Area in sq.mi<br>
+                <span>&emsp;</span> - Unemployment Change: Difference of Unemployment Rate between 2019 and 2020<br>
+                <span>&emsp;</span> - Total Trips: Total Number of trips in 2020 after February<br><br>
+                In general, most of the states had an approximately 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">+10% leap for Stay-Home Rate at mid-March</span>, then there was a
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">sudden 10% decrease in May</span>. It’s interesting that there were not any big events or policy enforcement in May that might lead to such sudden reduction. Afterwards, the rate gradually reached to 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">10% increase in December</span> comparing to May.
+                <br><br>For all states, the 2020 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">unemployment rate substantially increased</span> in April comparing to 2019 and gradually approximate to the level of 2019 afterwards. Moreover, the 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">Stay-Home Density </span> and 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">Total Trips</span> most of the states did not vary a lot after February in 2020 except for 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">California</span>.
+                <br><br>
+                After clicking on a state on the map and select one of the categories at the bottom, the change of corresponding metric along with time for the chosen state will be shown. 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">To change a metric</span>, it only needs to click on the category bar. 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">To change a state</span>, it takes 2 steps: select a state and a category.
               </p>
+            </div>
+
               <div class = 'container'>
               <div class = box5>
                 <p>Hint:<br>1. Select a state<br>2. Select a category</p>
@@ -128,10 +147,21 @@
         <div class = 'container1'>
           <div id = 'fig3'></div>
           <div class = 'box1'> 
-            <!-- <h3 id = "fig3">Trip Distribution Display</h3> -->
+            <div class = 'box_content'>
               <p>
-              Yes, people still travel, but for very different distances. Researches have shown that travel distances are highly related to the infection rate. The travel distance can be categorized into 4 types of travel ranges: walkable distance [0 mile, 3 miles), short distance [3 mile, 25 miles), medium distance [25 miles, 100 miles), long distance [100 miles, +<span>&#8734;</span>). Here you can see the number of each type of travel range in the whole country, along with the number of each types of travel every month. Chances of getting infected highly depend on how many people you meet and how long you are exposed to the public. Although many other factors may also interfere with the result, the relatively positive relationship between travel distance and chance of getting infected is certain. Less travel is always a safer choice.
+              Yes, people were still travelling, but for very different distances. Researches showed that travel distances are highly related to the infection rate. During the pandemic, people tend to 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">travel shorter distance</span>. Although the overall travel distance had 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">declined</span> a lot because of the pandemic, traveling of various distances remain existing. The interesting thing was that while shorter distance travel number declined over time, longer distance travel number remained at a relatively 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">constant level</span>. <br><br>
+              The travel distance can be categorized into 4 types of 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">travel ranges: walkable trips</span> [0 mile, 3 miles),
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">commute trips</span> [3 mile, 25 miles),
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">outdoor activity trips</span> [25 miles, 100 miles), 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">travelling trips</span> [100 miles, +<span>&#8734;</span>). Shown in the graph are the number of each type of travel range               
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">over the country</span>, along with the number of each types of travel 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">every month</span>. The time period and travel distance type can be chosen by users.
               <p>
+              </div>
                 <div class = 'vega'>
               <div id="view"></div>
             </div>
@@ -146,9 +176,21 @@
         <div class = 'container1'>
         <div class = 'box3'>
           <div id = fig4></div>
+          <div class = 'box_content'>
           <p>
-            People are travelling, but different age groups travels differently, and people’s travel patterns are very different between a normal year and a year with pandemic. When we put them side by side, it becomes more obvious that the overall travels have declined a lot in the past year. Child adolescence and senior adults have a declination in all types of travel ranges; however, the declination is not as dramatical as those of the Adult. Adults seems to be scared of the disease the most, you can easily recognize this if you select different groups from button and see the visualization.
+            People were travelling, but different age groups travels differently, and people’s travel patterns are very different 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">between a normal year and a year with pandemic</span>. When we put them side by side, it became more obvious that the overall travels had 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">declined</span> 
+            a lot in the past year. Adults, adolescence and senior adults had a declination in all types of travel ranges; however, the declination was not as dramatical as those of the 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Child</span>. A possible explanation for this was that the stay home order affected children’s lives the most.
+            <br><br>
+            People are categorized into 4 age groups: 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Child</span> age [0, 12], 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Adolescence</span> age (12, 18],
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Adult</span>Adult age (18, 59], 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Senior Adult</span>age (60, +<span>&#8734;</span>]. Users can select different age groups to view the result. 
           </p>
+        </div>
           <button class="fig4_button1"; onclick="update('Adult_trips.csv'); updatemap('Adult'); updatemap('Adult'); update_ymax(45000)">Adult</button>
           <button class="fig4_button2"; onclick="update('child_trips.csv'); updatemap('Child'); updatemap('Child'); update_ymax(25000)">Child</button>
           <button class="fig4_button3"; onclick="update('Adolescence_trips.csv'); updatemap('Adolescence'); updatemap('Adolescence'); update_ymax(30000)">Adolescence</button>
@@ -554,28 +596,57 @@
 
       </section>
 
+      <!-- Conclusion -->
+      <div class = 'container1'>
+        <div class = 'box_conclu'>
+          <div class = 'box_content'>
+            <p>To summarize, total trips for most of the states did not vary a lot. 
+              Among the 4 types of trips, the number of trips with shorter distance declined a lot while trips with longer distance remained at a relatively constant level. 
+              In addition, travel preferences for states with different percentage of the 4 age groups had a similar 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">declination</span>
+              in all types of travel ranges except for states with high percentage of child. 
+
+              <br><br>
+              
+              As lockdown measures gradually ease, if travelers prioritize their own native countries as destinations to explore and celebrate, it will promote the concept of 
+              <span style="font-size: 20px; color: aqua ;font-weight: 400">‘slow travel’</span>, 
+              whereby people take trips that last longer, explore deeper into destinations, and provide more of a cultural or heritage immersion.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- About Us -->
       <div class = 'container1'>
       <div class = 'box4'>
         <div id = 'about'></div>
-        <div class = 'content'>
-          <h3>About Us </h3>
-            <p>
-            <!-- <span>&emsp;&emsp;</span> -->
-            Yifan Ling: Know about everything except knowledge about his major<br />
-            <br />
-            Zhijun Liu: Professional photographer with a 4GB storage card<br />
-            <br />
-            Kairui Huang: For some reason, he is the sunshine of our group<br />
-            <br />
-            Lu Liu: A random beautiful girl<br />
-            <br />
-              <!-- <a href='https://courses.cs.washington.edu/courses/cse412/21wi/fp.html'>course website</a>. -->
-            </p>
-        </div>
+        <!-- <div class = 'content'> -->
+          <div class="box_title">
+          <h1>About Us </h1>
+          </div>
+          <div class= 'box_ling_pic'></div>
+          <div class="box_ling">
+            <p>Yifan Ling:<br> <br> Know about everything except knowledge about his major</p>
+          </div>
+          <div class= 'box_jun_pic'></div>
+          <div class="box_jun">
+          <p>Zhijun Liu:<br> <br>Professional photographer with a 4GB storage card</p>
+          </div>
+          <div class= 'box_ray_pic'></div>
+          <div class="box_ray">
+            <p>Kairui Huang:<br> <br> For some reason, he is the sunshine of our groups</p>
+          </div>
+          <div class= 'box_lu_pic'></div>
+          <div class="box_lu">
+            <p>Lu Liu:<br> <br> A random beautiful girl</p>
+          </div>
       </div>
-      </div>
+      </div>    
 
-      <!-- igure footer -->
+
+      <!-- Figure footer -->
+      <div class="box_footer"></div>
       <div class="footer">
               <ul>
                 <li><a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a></li>

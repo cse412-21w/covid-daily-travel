@@ -9,10 +9,11 @@ var margin_line = {top: 0, right: 20, bottom: 50, left: 70},
 
 var htmlCategory = (function(){
   var mapping = {
-        pop_rate: 'Pop/Pop',
-        area_rate: 'Pop/Area',
-        unemployment_rate: 'Unemployment Rate',
-        NumberOfTrips: 'Total Travel'
+        title: 'category',
+        pop_rate: 'Stay-Home Rate',
+        area_rate: 'Stay-Home Density',
+        unemployment_rate: 'unemployment Change',
+        NumberOfTrips: 'Total Trips'
   };
   return function(codename){
     return mapping[codename];

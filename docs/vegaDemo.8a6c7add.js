@@ -202,7 +202,7 @@ function drawBarVegaLite() {
     color: '#d1f7ff',
     fontSize: 15,
     font: 'Tahoma'
-  }).width(1000);
+  }).width(950);
   var trip_Point = vl.markCircle({
     filled: true,
     size: 6
@@ -230,7 +230,7 @@ function drawBarVegaLite() {
     color: '#d1f7ff',
     fontSize: 15,
     font: 'Tahoma'
-  }).select(brush).transform(vl.filter(click)).width(1000);
+  }).select(brush).transform(vl.filter(click)).width(950);
   var trip_Line = vl.markLine().data(_trips_categorize_.default).encode(vl.x().fieldT('Date').axis({
     labelAngle: 0,
     grid: false,
@@ -275,4 +275,4 @@ function drawBarVegaLite() {
   });
 }
 },{"../static/trips_categorize_24@3.csv":"Goo8"}]},{},["CsaW"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/vegaDemo.1cb23884.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/vegaDemo.8a6c7add.js.map

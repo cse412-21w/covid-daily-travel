@@ -96,7 +96,7 @@ p { font-size: 12pt; margin: 15px 20px ; color: #d1f7ff; line-height: 40 px; let
 }
 
 .box_intro {
-  background-image: url('covid.jpg');
+  background-image: url('/covid.0cef1bda.jpg');
   /* background-position: center; */
   opacity: 0.8;
   background-size: 115%;
@@ -844,7 +844,7 @@ nav ul li a:hover {
 }
 
 .box_ling_pic {
-  background-image: url('ling.jpg');
+  background-image: url('/ling.1704b303.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -863,7 +863,7 @@ nav ul li a:hover {
 }
 
 .box_lu_pic {
-  background-image: url('lu.jpg');
+  background-image: url('/lu.99a40141.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -894,7 +894,7 @@ nav ul li a:hover {
 }
 
 .box_ray_pic {
-  background-image: url('ray.jpg');
+  background-image: url('/ray.d6b5db6a.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -924,7 +924,7 @@ nav ul li a:hover {
 }
 
 .box_jun_pic {
-  background-image: url('jun.jpg');
+  background-image: url('/jun.b2e33bce.jpg');
   position: absolute;
   float: left;
   vertical-align: middle;
@@ -973,3 +973,5 @@ nav ul li a:hover {
   -.04em .04em  #05d9e8, 
   .09em .09em  #005678;
 }
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
