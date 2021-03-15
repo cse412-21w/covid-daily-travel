@@ -138,10 +138,9 @@ var margin_line = {
 
 var htmlCategory = function () {
   var mapping = {
-    title: 'category',
     pop_rate: 'Stay-Home Rate',
     area_rate: 'Stay-Home Density',
-    unemployment_rate: 'unemployment Change',
+    unemployment_rate: 'Unemployment Change',
     NumberOfTrips: 'Total Trips'
   };
   return function (codename) {
@@ -195,7 +194,7 @@ function drawLine(name) {
 
     svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)").style('font-size', 13).style('font-family', 'Tahoma'); //text label for the y axis
 
-    svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin_line.left).attr("x", 0 - height_line / 2).attr("dy", "1em").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Number of trips / Population (#/person)"); // text label for the x axis
+    svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin_line.left).attr("x", 0 - height_line / 2).attr("dy", "1em").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Stay Home Rate"); // text label for the x axis
 
     svg.append("text").attr("transform", "translate(" + width_line / 2 + " ," + (height_line + margin_line.top + 35) + ")").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Date");
     svg.append("text").attr("x", 570).attr("y", 40).style("text-anchor", "middle").style("font-size", "40px").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff67f2, 0 0 20px #ff67f2").text(name); // Add the valueline path.
@@ -232,7 +231,7 @@ function drawLine_area_rate(name) {
 
     svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)").style('font-size', 13).style('font-family', 'Tahoma'); //text label for the y axis
 
-    svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin_line.left).attr("x", 0 - height_line / 2).attr("dy", "1em").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Number of trips / Area (#/mi^2)"); // text label for the x axis
+    svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin_line.left).attr("x", 0 - height_line / 2).attr("dy", "1em").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Stay Home Density"); // text label for the x axis
 
     svg.append("text").attr("transform", "translate(" + width_line / 2 + " ," + (height_line + margin_line.top + 35) + ")").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Date");
     svg.append("text").attr("x", 570).attr("y", 40).style("text-anchor", "middle").style("font-size", "40px").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff67f2, 0 0 20px #ff67f2").text(name); // Add the valueline path.
@@ -269,7 +268,7 @@ function drawLine_unemployment_rate(name) {
 
     svg.append("g").call(d3.axisLeft(y)).style("color", "rgb(110,255,224)").style('font-size', 13).style('font-family', 'Tahoma'); //text label for the y axis
 
-    svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin_line.left).attr("x", 0 - height_line / 2).attr("dy", "1em").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Unemployment Rate (%)"); // text label for the x axis
+    svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin_line.left).attr("x", 0 - height_line / 2).attr("dy", "1em").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Unemployment Change"); // text label for the x axis
 
     svg.append("text").attr("transform", "translate(" + width_line / 2 + " ," + (height_line + margin_line.top + 35) + ")").style("text-anchor", "middle").style("fill", "rgb(255,103,242)").style("text-shadow", "0 0 3px #fff").text("Date");
     svg.append("text") // text label for the x axis
@@ -459,4 +458,4 @@ d3.json("https://cdn.jsdelivr.net/npm/us-atlas/states-10m.json").then(function (
   });
 });
 },{}]},{},["b6ee"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/Fig2_zzl_2.24b41216.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/covid-daily-travel/Fig2_zzl_2.831d0684.js.map

@@ -9,10 +9,9 @@ var margin_line = {top: 0, right: 20, bottom: 50, left: 70},
 
 var htmlCategory = (function(){
   var mapping = {
-        title: 'category',
         pop_rate: 'Stay-Home Rate',
         area_rate: 'Stay-Home Density',
-        unemployment_rate: 'unemployment Change',
+        unemployment_rate: 'Unemployment Change',
         NumberOfTrips: 'Total Trips'
   };
   return function(codename){
@@ -104,7 +103,7 @@ function drawLine(name){
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
       .style("text-shadow","0 0 3px #fff")
-      .text("Number of trips / Population (#/person)");
+      .text("Stay Home Rate");
 
   // text label for the x axis
   svg.append("text")             
@@ -177,7 +176,7 @@ function drawLine_area_rate(name){
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
       .style("text-shadow","0 0 3px #fff")
-      .text("Number of trips / Area (#/mi^2)");
+      .text("Stay Home Density");
 
   // text label for the x axis
   svg.append("text")             
@@ -249,7 +248,7 @@ function drawLine_unemployment_rate(name){
       .style("text-anchor", "middle")
       .style("fill", "rgb(255,103,242)")
       .style("text-shadow","0 0 3px #fff")
-      .text("Unemployment Rate (%)");
+      .text("Unemployment Change");
 
   // text label for the x axis
   svg.append("text")             
