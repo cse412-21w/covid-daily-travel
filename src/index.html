@@ -187,8 +187,8 @@
             People are categorized into 4 age groups: 
             <span style="font-size: 20px; color: aqua ;font-weight: 400">Child</span> age [0, 12], 
             <span style="font-size: 20px; color: aqua ;font-weight: 400">Adolescence</span> age (12, 18],
-            <span style="font-size: 20px; color: aqua ;font-weight: 400">Adult</span>Adult age (18, 59], 
-            <span style="font-size: 20px; color: aqua ;font-weight: 400">Senior Adult</span>age (60, +<span>&#8734;</span>]. Users can select different age groups to view the result. 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Adult</span> age (18, 59], 
+            <span style="font-size: 20px; color: aqua ;font-weight: 400">Senior Adult</span> age (60, +<span>&#8734;</span>]. Users can select different age groups to view the result. 
           </p>
         </div>
           <button class="fig4_button1"; onclick="update('Adult_trips.csv'); updatemap('Adult'); updatemap('Adult'); update_ymax(45000)">Adult</button>
@@ -197,7 +197,22 @@
           <button class="fig4_button4"; onclick="update('Senior_Adult_trips.csv'); updatemap('Senior_Adult'); updatemap('Senior_Adult'); update_ymax(12000)">Senior Adult</button>
           <div class="fig4_container"></div>
             <div id="Fig4_map"></div>
-            <div class="box_black1"><p></p></div>
+            <div class="box_black1"><p> </p></div>
+
+            <div class="box_black3">
+              <div class="box_content">
+              <p> 
+                To summarize, total trips for most of the states did not vary a lot. 
+                Among the 4 types of trips, the number of trips with shorter distance declined a lot while trips with longer distance remained at a relatively constant level. 
+                In addition, travel preferences for states with different percentage of the 4 age groups had a similar 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">declination</span>
+                in all types of travel ranges except for states with high percentage of child. 
+                <br><br>
+                As lockdown measures gradually ease, if travelers prioritize their own native countries as destinations to explore and celebrate, it will promote the concept of 
+                <span style="font-size: 20px; color: aqua ;font-weight: 400">‘slow travel’</span>, 
+                whereby people take trips that last longer, explore deeper into destinations, and provide more of a cultural or heritage immersion.
+              </p></div>
+            </div>
             <div id="Fig4_bar"></div>
             <div class="box_black2"><p></p></div>
           </div>
@@ -592,12 +607,11 @@
           update('Adult_trips.csv');
           
         </script>
-        </div>
-
+      </div>
       </section>
 
       <!-- Conclusion -->
-      <div class = 'container1'>
+      <!-- <div class = 'container1'>
         <div class = 'box_conclu'>
           <div class = 'box_content'>
             <p>To summarize, total trips for most of the states did not vary a lot. 
@@ -605,13 +619,53 @@
               In addition, travel preferences for states with different percentage of the 4 age groups had a similar 
               <span style="font-size: 20px; color: aqua ;font-weight: 400">declination</span>
               in all types of travel ranges except for states with high percentage of child. 
-
               <br><br>
-              
               As lockdown measures gradually ease, if travelers prioritize their own native countries as destinations to explore and celebrate, it will promote the concept of 
               <span style="font-size: 20px; color: aqua ;font-weight: 400">‘slow travel’</span>, 
               whereby people take trips that last longer, explore deeper into destinations, and provide more of a cultural or heritage immersion.
             </p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- About this project -->
+      <div class = 'container1'>
+        <div class="box_aboutp">
+          <div class = 'box_aboutp_left'>
+            <div class = 'box_content'>
+              <h1> Datasets </h1>
+              <p> <br><br>
+                <span>&emsp;</span> - Trips by Distance: 
+                <a href="https://data.bts.gov/" style='color: aqua'>
+                  <br> <span>&emsp;</span> <span>&emsp;</span> 
+                  Bureau of Transportation Statistics</a> <br>
+
+                <span>&emsp;</span> - US Census Data: 
+                <a href="https://data.census.gov/cedsci/" style='color: aqua'>
+                  <br> <span>&emsp;</span> <span>&emsp;</span> 
+                  United States Census Bureau</a> <br>
+
+                <span>&emsp;</span> - COVID Confirmed Cases: 
+                <a href="https://www.ecdc.europa.eu/en" style='color: aqua'>
+                  <br> <span>&emsp;</span> <span>&emsp;</span> 
+                  European Centre for Disease Prevention and Control</a> <br>
+
+                <span>&emsp;</span> - State Unemployment Rate: 
+                <a href="https://data.bls.gov/lausmap/showMap.jsp;jsessionid=63F0B44FF33FF3AD512ABCD1F7927FF4._t3_07v" style='color: aqua'>
+                <br> <span>&emsp;</span> <span>&emsp;</span> 
+                U.S. BUREAU OF LABOR STATSTICS</a> <br>
+                <br>
+              </p>
+            </div>
+          </div>
+          <div class = 'box_aboutp_right'>
+            <div class = 'box_content'>
+              <h1> Special Thanks </h1>
+              <p><br><br>
+                <span>&emsp;</span> - Instructor: Jane Hoffswell <br>
+                <span>&emsp;</span> - TAs: Sonya Lao, Naveena Karusala
+              </p>
+            </div>
           </div>
         </div>
       </div>
