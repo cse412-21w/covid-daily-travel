@@ -4,7 +4,7 @@ Kairui Huang, Lu Liu, Yifan Ling, Zhijun Liu
 ### Contribution Statements
 Add individual contribution statements here.
 ## Project Proposal Abstract
-This is the space for you to add a description for your project.
+The highly infectious disease COVID-19 pandemic has caused unprecedented live and economical loss in the United States, also poses a significant challenge for us. In different parts of the country, different types of people are doing different things that changed the pandemic in different scales, significantly or not, our behaviors are interfering with this world.
 
 ## Getting Started
 
